@@ -10,6 +10,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.google.android.material.navigation.NavigationView;
+
+
 public class MainActivity extends AppCompatActivity {
 
     public DrawerLayout drawerLayout;
@@ -32,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
         // to make the Navigation drawer icon always appear on the action bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        NavigationView navigation_view = findViewById(R.id.navigation_view);
     }
 
     // override the onOptionsItemSelected()
