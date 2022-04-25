@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragmentSettings">
+
+    <TextView
+        android:id="@+id/languageText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change language"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"/>
+
+    <TextView
+        android:id="@+id/emailText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change email address"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="250dp"/>
+
+    <TextView
+        android:id="@+id/passwordText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change password"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="450dp"/>
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="100dp"/>
+
+    <Button
+        android:id="@+id/setLanguage"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="88dp"
+        android:text="Set" />
+
+    <Button
+        android:id="@+id/setEmailAddress"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="330dp"
+        android:text="Set" />
+
+    <Button
+        android:id="@+id/setPassword"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="570dp"
+        android:text="Set" />
+
+    <TextView
+        android:id="@+id/oldEmailAddressText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="old.email@address.com"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="300dp"/>
+
+    <EditText
+        android:id="@+id/newEmailAddressText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="330dp"
+        android:ems="10"
+        android:hint="New email address"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/oldPasswordText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Type in old password:"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="500dp"/>
+
+    <EditText
+        android:id="@+id/oldPassword"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="483dp"
+        android:ems="10"
+        android:hint="Old password"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/newPasswordText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Type in new password:"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="540dp"/>
+
+    <EditText
+        android:id="@+id/newPassword"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="523dp"
+        android:ems="10"
+        android:hint="New password"
+        android:inputType="textPersonName" />
+</FrameLayout>
