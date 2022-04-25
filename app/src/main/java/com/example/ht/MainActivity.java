@@ -2,6 +2,7 @@ package com.example.ht;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -37,6 +38,16 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         NavigationView navigation_view = findViewById(R.id.navigation_view);
+        navigation_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (item.getItemId() == R.id.nav_settings) {
+                    Intent SettingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
+                    startActivity(SettingsIntent);
+                }
+                return false;
+            }
+        });
     }
 
     // override the onOptionsItemSelected()
