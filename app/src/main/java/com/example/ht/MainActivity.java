@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
@@ -39,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.my_drawer_layout);
         toolbar = findViewById(R.id.toolbar);
         manager = getSupportFragmentManager();
+
+
+        // giving permission to use the internet
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
 
 
         // setting up toolbar's navigation menu toggle

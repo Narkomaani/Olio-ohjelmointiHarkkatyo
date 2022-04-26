@@ -1,4 +1,4 @@
-package com.example.ht;
+package com.example.ht.user;
 
 public class UserManager{
 
