@@ -2,14 +2,14 @@ package com.example.ht;
 
 public class MovieManager {
     private Movie[] movies;
-    private  MovieManager movieManager;
+    private static MovieManager movieManager;
 
 
     private MovieManager() {
 
     }
 
-    private MovieManager getInstance() {
+    public static MovieManager getInstance() {
         return movieManager;
     }
 

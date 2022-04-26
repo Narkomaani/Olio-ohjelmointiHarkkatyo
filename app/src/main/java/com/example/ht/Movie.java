@@ -1,5 +1,8 @@
 package com.example.ht;
 
+/**
+ * Base class for movie and its variables
+ */
 public class Movie {
     private String title = "The movie";
     private int movieID = 1234;

@@ -1,5 +1,8 @@
 package com.example.ht;
 
+/**
+ * class holding all displayable data of user
+ */
 public class UserProfile {
     private String FirstName = "Matti";
     private String LastName = "Meikäläinen";

@@ -1,5 +1,8 @@
 package com.example.ht;
 
+/**
+ * base class for users, extending userprofile to get its data
+ */
 public class User extends UserProfile {
     private String username = "mattimeikalainen";
     private int userid = 12345;
