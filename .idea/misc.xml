@@ -5,17 +5,17 @@
       <map>
         <entry key="..\:/Users/ellaa/AndroidStudioProjects/HT/app/src/main/res/layout/layout_navigation_header.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/ellaa/AndroidStudioProjects/HT/app/src/main/res/menu/navigation_menu.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/ellaa/Olio-ohjelmointiHarkkatyo/Olio-ohjelmointiHarkkatyo/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/ellaa/Olio-ohjelmointiHarkkatyo/Olio-ohjelmointiHarkkatyo/app/src/main/res/layout/activity_settings.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/ellaa/Olio-ohjelmointiHarkkatyo/Olio-ohjelmointiHarkkatyo/app/src/main/res/layout/fragment_settings.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/ellaa/Olio-ohjelmointiHarkkatyo/Olio-ohjelmointiHarkkatyo/app/src/main/res/layout/settings_activity.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/ellaa/Olio-ohjelmointiHarkkatyo/Olio-ohjelmointiHarkkatyo/app/src/main/res/menu/navigation_menu.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/ellaa/Olio-ohjelmointiHarkkatyo/Olio-ohjelmointiHarkkatyo/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2595" />
-        <entry key="..\:/Users/ellaa/Olio-ohjelmointiHarkkatyo/Olio-ohjelmointiHarkkatyo/app/src/main/res/xml/root_preferences.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/jerew/AndroidStudioProjects/harkkatyo/app/src/main/res/layout/activity_app_bar.xml" value="0.3183876811594203" />
+        <entry key="..\:/Users/jerew/AndroidStudioProjects/harkkatyo/app/src/main/res/layout/activity_main.xml" value="0.3802083333333333" />
+        <entry key="..\:/Users/jerew/AndroidStudioProjects/harkkatyo/app/src/main/res/layout/activity_navmenu.xml" value="0.37916666666666665" />
+        <entry key="..\:/Users/jerew/AndroidStudioProjects/harkkatyo/app/src/main/res/layout/activity_settings.xml" value="0.3802083333333333" />
+        <entry key="..\:/Users/jerew/AndroidStudioProjects/harkkatyo/app/src/main/res/layout/layout_navigation_header.xml" value="0.3802083333333333" />
+        <entry key="..\:/Users/jerew/AndroidStudioProjects/harkkatyo/app/src/main/res/menu/navigation_menu.xml" value="0.3802083333333333" />
+        <entry key="..\:/Users/jerew/AndroidStudioProjects/harkkatyo/app/src/main/res/xml/preferences.xml" value="0.39166666666666666" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
