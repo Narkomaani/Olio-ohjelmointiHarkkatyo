@@ -1,4 +1,4 @@
-package com.example.ht;
+package com.example.ht.movie;
 
 /**
  * Base class for movie and its variables

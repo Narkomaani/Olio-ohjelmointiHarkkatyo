@@ -1,4 +1,4 @@
-package com.example.ht;
+package com.example.ht.user;
 
 /**
  * class holding all displayable data of user

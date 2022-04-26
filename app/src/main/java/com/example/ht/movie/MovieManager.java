@@ -1,4 +1,4 @@
-package com.example.ht;
+package com.example.ht.movie;
 
 public class MovieManager {
     private Movie[] movies;
