@@ -7,7 +7,13 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -18,32 +24,46 @@ public class MainActivity extends AppCompatActivity {
 
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
+    public androidx.appcompat.widget.Toolbar toolbar;
+    public Fragment fragment;
+    public NavigationView navigation_view;
+    public FragmentManager manager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // drawer layout instance to toggle the menu icon to open
-        // drawer and back button to close drawer
+        navigation_view = findViewById(R.id.navigation_view);
         drawerLayout = findViewById(R.id.my_drawer_layout);
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
+        toolbar = findViewById(R.id.toolbar);
+        manager = getSupportFragmentManager();
 
+
+        // setting up toolbar's navigation menu toggle
+        setSupportActionBar(toolbar);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.nav_open, R.string.nav_close);
         // pass the Open and Close toggle for the drawer layout listener
         // to toggle the button
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
-        // to make the Navigation drawer icon always appear on the action bar
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        NavigationView navigation_view = findViewById(R.id.navigation_view);
         navigation_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if (item.getItemId() == R.id.nav_settings) {
-                    Intent SettingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
-                    startActivity(SettingsIntent);
+                fragment = null;
+                int itemid = item.getItemId();
+                if (itemid == R.id.nav_settings) {
+                    fragment = new SettingsFragment();
+                }
+
+                if (fragment != null) {
+                    FragmentTransaction transaction = manager.beginTransaction();
+                    transaction.replace(R.id.fragment_window, fragment);
+                    transaction.commit();
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                    return true;
                 }
                 return false;
             }
