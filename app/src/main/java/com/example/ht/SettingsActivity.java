@@ -25,7 +25,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         spinnerLanguages = findViewById(R.id.spinner_languages);
 
-        ArrayAdapter<CharSequence>adapter=ArrayAdapter.createFromResource(this, R.array.languages, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence>adapter=ArrayAdapter.createFromResource(this, R.array.languages_array, android.R.layout.simple_spinner_item);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
 
