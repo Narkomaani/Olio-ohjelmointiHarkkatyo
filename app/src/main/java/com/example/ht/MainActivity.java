@@ -20,6 +20,7 @@ import android.view.MenuItem;
 
 import com.example.ht.movie.HomePageFragment;
 
+import com.example.ht.user.CalendarFragment;
 import com.google.android.material.navigation.NavigationView;
 
 
@@ -67,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new SettingsFragment();
                 } else if ((itemid == R.id.nav_home_page) ){
                     fragment = new HomePageFragment();
+                } else if (itemid == R.id.nav_calendar) {
+                    fragment = new CalendarFragment();
                 }
 
                 if (fragment != null) {
