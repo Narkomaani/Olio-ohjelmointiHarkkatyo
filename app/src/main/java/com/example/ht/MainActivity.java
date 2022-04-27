@@ -13,6 +13,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceManager;
 
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -56,6 +58,14 @@ public class MainActivity extends AppCompatActivity {
         // to toggle the button
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
+
+        // set default settings
+        PreferenceManager.setDefaultValues(this, R.xml.preferences,false);
+
+        // make starting fragment HomePageFragment
+        manager.beginTransaction()
+                .replace(R.id.fragment_window, new HomePageFragment())
+                .commit();
 
         navigation_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override

@@ -1,9 +1,11 @@
 package com.example.ht.user;
 
+import java.util.ArrayList;
+
 public class UserManager{
 
     private UserManager userManager;
-    private User[] Users;
+    private ArrayList<User> Users;
     private User currentUser;
 
 
