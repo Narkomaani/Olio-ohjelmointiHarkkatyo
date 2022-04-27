@@ -111,7 +111,7 @@ public class HomePageFragment extends Fragment {
                 }
 
             }
-        }); //KESKEN PÄÄTTYY
+        });
 
         //Clear problem here
         /*
