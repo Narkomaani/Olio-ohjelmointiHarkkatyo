@@ -21,6 +21,16 @@
         android:layout_marginTop="40dp"
         android:minHeight="32dp" />
 
+    <Spinner
+        android:id="@+id/event_spinner"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+
+        android:layout_below="@+id/theater_spinner"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="10dp"
+        android:minHeight="32dp" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -42,6 +52,6 @@
         android:id="@+id/movieList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="150dp" />
+        android:layout_marginTop="300dp" />
 
 </RelativeLayout>
