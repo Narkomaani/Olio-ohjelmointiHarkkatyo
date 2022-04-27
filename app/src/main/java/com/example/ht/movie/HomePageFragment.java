@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
@@ -24,7 +26,10 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -36,6 +41,7 @@ public class HomePageFragment extends Fragment {
     ArrayList<String> theaters = new ArrayList<>();
     ArrayList<String> theaterIds = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
+    ArrayList<String> shows = new ArrayList<>();
 
     @Nullable
     @Override
@@ -50,6 +56,26 @@ public class HomePageFragment extends Fragment {
 
         arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, theaters);
         theater_spinner.setAdapter(arrayAdapter);
+
+        Button searchButton = rootView.findViewById(R.id.searchButton);
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int idPosition = theater_spinner.getSelectedItemPosition();
+                shows = showShows(idPosition);
+
+                String showsText = "";
+                for (int i = 0; i < shows.size(); i++) {
+                    showsText = showsText + shows.get(i);
+                }
+
+                ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, shows);
+
+                ListView listview = rootView.findViewById(R.id.movieList);
+                listview.setAdapter(arrayAdapter2);
+
+            }
+        });
 
         //Clear problem here
         /*
@@ -101,5 +127,49 @@ public class HomePageFragment extends Fragment {
             System.out.println("Done");
         }
         return theaters;
+    }
+
+    public ArrayList showShows(int idPosition) {
+        try {
+            String id = theaterIds.get(idPosition);
+            String pattern = "dd.MM.yyyy";
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+            Date today = Calendar.getInstance().getTime();
+            String datetoday = simpleDateFormat.format(today);
+            String urlShows = "https://www.finnkino.fi/xml/Schedule/?area=" + id + "&dt=" + datetoday;
+            DocumentBuilder builder2 = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+            Document doc2 = builder2.parse(urlShows);
+            doc2.getDocumentElement().normalize();
+
+            NodeList nList2 = doc2.getDocumentElement().getElementsByTagName("Show");
+
+            for (int i = 0; i < nList2.getLength(); i++) {
+                Node node = nList2.item(i);
+                if (node.getNodeType() == Node.ELEMENT_NODE) {
+                    Element element = (Element) node;
+                    //System.out.println(element.getElementsByTagName("Title").item(0).getTextContent());
+                    //System.out.println(element.getElementsByTagName("dttmShowStart").item(0).getTextContent());
+                    //System.out.println(element.getElementsByTagName("Theatre").item(0).getTextContent());
+
+                    String showTime = element.getElementsByTagName("dttmShowStart").item(0).getTextContent();
+                    String showTimeInfo[] = showTime.split("T");
+                    showTime = showTimeInfo[1];
+                    String showTimeHourAndMinute[] = showTime.split(":");
+                    int hour = Integer.parseInt(showTimeHourAndMinute[0]);
+                    int minute = Integer.parseInt(showTimeHourAndMinute[1]);
+
+                    shows.add("\nTitle: " + element.getElementsByTagName("Title").item(0).getTextContent() + "\nTime and date: " + element.getElementsByTagName("dttmShowStart").item(0).getTextContent() + "\n Theatre: " + element.getElementsByTagName("Theatre").item(0).getTextContent() + "\n");
+                }
+            }
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } finally {
+            System.out.println("Done");
+        }
+        return shows;
     }
 }

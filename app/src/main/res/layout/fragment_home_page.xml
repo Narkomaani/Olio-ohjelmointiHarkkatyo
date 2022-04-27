@@ -13,13 +13,12 @@
 
     <Spinner
         android:id="@+id/theater_spinner"
-        android:layout_width="80dp"
+        android:layout_width="300dp"
         android:layout_height="48dp"
 
         android:layout_below="@+id/toolbar"
         android:layout_marginStart="3dp"
-        android:layout_marginTop="2dp"
-        android:layout_toEndOf="@+id/textView"
+        android:layout_marginTop="40dp"
         android:minHeight="32dp" />
 
     <TextView
@@ -30,5 +29,19 @@
         android:layout_marginTop="10dp"
         android:text="Finnkino Theaters:"
         android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/searchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="98dp"
+        android:layout_marginLeft="310dp"
+        android:text="Search" />
+
+    <ListView
+        android:id="@+id/movieList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="150dp" />
 
 </RelativeLayout>
