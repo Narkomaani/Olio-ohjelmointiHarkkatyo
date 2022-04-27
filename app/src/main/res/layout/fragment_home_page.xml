@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -10,7 +11,8 @@
 
         android:layout_marginStart="3dp"
         android:layout_marginTop="40dp"
-        android:minHeight="32dp" />
+        android:minHeight="32dp"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Spinner
         android:id="@+id/event_spinner"
@@ -20,7 +22,8 @@
         android:layout_below="@+id/theater_spinner"
         android:layout_marginStart="3dp"
         android:layout_marginTop="10dp"
-        android:minHeight="32dp" />
+        android:minHeight="32dp"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/textView"
