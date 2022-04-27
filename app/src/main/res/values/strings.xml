@@ -6,6 +6,9 @@
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
 
+    <!-- Home Page Strings -->
+    <string name="theaters">Finnkino Theaters:</string>
+    <string name="search">Search</string>
 
     <!-- Settings Strings -->
     <string name="settings">Settings</string>
