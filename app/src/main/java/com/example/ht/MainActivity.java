@@ -18,6 +18,8 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.MenuItem;
 
+import com.example.ht.movie.HomePageFragment;
+
 import com.google.android.material.navigation.NavigationView;
 
 
@@ -59,9 +61,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 fragment = null;
+                //This should be cleaned up
                 int itemid = item.getItemId();
                 if (itemid == R.id.nav_settings) {
                     fragment = new SettingsFragment();
+                } else if ((itemid == R.id.nav_home_page) ){
+                    fragment = new HomePageFragment();
                 }
 
                 if (fragment != null) {
