@@ -5,14 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/weeklyButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Weekly"
-        android:textStyle="bold"
-        android:textSize="20sp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,8 +20,9 @@
             android:layout_weight="1"
             android:text="@string/back"
             android:textStyle="bold"
-            android:textSize="20sp"/>
-        
+            android:textSize="20sp"
+            android:onClick="previousWeekAction"/>
+
         <TextView
             android:id="@+id/monthYearTextView"
             android:layout_width="0dp"
@@ -46,7 +39,8 @@
             android:layout_weight="1"
             android:text="@string/forward"
             android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:onClick="nextWeekAction"/>
 
     </LinearLayout>
 
@@ -116,6 +110,22 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/calendarRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/newEventButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Event"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:onClick="newEventAction"
+        android:layout_gravity="center"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"/>
 
 </LinearLayout>

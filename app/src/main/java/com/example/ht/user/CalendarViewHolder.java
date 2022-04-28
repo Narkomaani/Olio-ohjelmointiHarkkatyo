@@ -12,11 +12,13 @@ public class CalendarViewHolder extends RecyclerView.ViewHolder implements View.
 
     public final TextView dayOfMonth;
     private final CalendarAdapter.OnItemListener onItemListener;
+    public final View parentView;
 
     public CalendarViewHolder(@NonNull View itemView, CalendarAdapter.OnItemListener onItemListener) {
         super(itemView);
         dayOfMonth = itemView.findViewById(R.id.cellDayText);
         this.onItemListener = onItemListener;
+        parentView = itemView.findViewById(R.id.parentView);
         itemView.setOnClickListener(this);
     }
 
