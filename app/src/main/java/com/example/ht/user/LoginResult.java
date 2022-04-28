@@ -2,6 +2,9 @@ package com.example.ht.user;
 
 import android.util.Patterns;
 
+import java.util.ArrayList;
+import java.util.Locale;
+
 /**
  * a class to check if username and password are valid
  * code take from Android studio's Login activity example
@@ -24,7 +27,20 @@ public class LoginResult {
 
     // A password validation check
     public static boolean isPasswordValid(String password) {
-        return password != null && password.trim().length() > 5;
+        char chr;
+        boolean upperFlag = false;
+        boolean lowerFlag = false;
+        // checks every character to find if password contains upper and lower case
+        for (int i=0; i < password.length(); i++) {
+            chr = password.charAt(i);
+            if (Character.isUpperCase(chr)) {
+                upperFlag = true;
+            } else if (Character.isLowerCase(chr)) {
+                lowerFlag = true;
+            }
+        }
+
+        return password != null && password.trim().length() > 12 && upperFlag && lowerFlag;
     }
 
     public static boolean validate(String username, String password) {

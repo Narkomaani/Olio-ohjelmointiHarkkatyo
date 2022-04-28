@@ -3,6 +3,7 @@ package com.example.ht;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,10 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText email;
     private Button registerUserButton;
 
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +38,10 @@ public class RegistrationActivity extends AppCompatActivity {
         firstname = findViewById(R.id.firstnameRegister);
         lastname = findViewById(R.id.lastnameRegister);
         email = findViewById(R.id.emailRegister);
+
+
+        sharedPreferences = getApplicationContext().getSharedPreferences("userDB", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
         registerUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,13 +66,26 @@ public class RegistrationActivity extends AppCompatActivity {
 
                 // validate the format of username and password
                  if (LoginResult.isUserNameValid(iUsername) && LoginResult.isPasswordValid(iPassword)){
-                     User newUser = new User(iUsername, iPassword);
-                     newUser.setFirstName(firstname.getText().toString());
-                     newUser.setLastName(lastname.getText().toString());
-                     newUser.setEmail(email.getText().toString());
-                     userManager.setCurrentUser(newUser);
-                     Snackbar.make(view, "Registration successful", Snackbar.LENGTH_LONG).show();
-                     startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
+
+                     if(userManager.checkUsername(iUsername)) {
+                         Snackbar.make(view, "Username already taken", Snackbar.LENGTH_LONG).show();
+                     } else {
+                         // Making the new user
+                         User newUser = (User) new User(iUsername, iPassword)
+                                 .setFirstName(firstname.getText().toString())
+                                 .setLastName(lastname.getText().toString())
+                                 .setEmail(email.getText().toString());
+
+                         userManager.setCurrentUser(newUser);
+                         userManager.addUser(newUser);
+
+                         // adding all data into the database
+                         editor.putString(iUsername, iPassword);
+                         editor.apply();
+
+                         Snackbar.make(view, "Registration successful", Snackbar.LENGTH_LONG).show();
+                         startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
+                     }
                  } else {
                      Snackbar.make(view, "please enter a valid username and password", Snackbar.LENGTH_LONG).show();
                  }

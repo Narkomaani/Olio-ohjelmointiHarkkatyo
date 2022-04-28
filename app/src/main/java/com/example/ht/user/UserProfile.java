@@ -9,16 +9,18 @@ public class UserProfile {
     private String email = "matti.meikalainen@gmail.com";
     private String location = "Mattila";
 
-    public  void  setFirstName(String FirstName) {
+    public UserProfile setFirstName(String FirstName) {
         this.FirstName = FirstName;
+        return this;
     }
 
     public String getFirstName() {
         return FirstName;
     }
 
-    public void setLastName(String lastName) {
+    public UserProfile setLastName(String lastName) {
         this.LastName = lastName;
+        return this;
     }
 
     public String getLastName() {
@@ -29,8 +31,9 @@ public class UserProfile {
         return email;
     }
 
-    public void setEmail(String email) {
+    public UserProfile setEmail(String email) {
         this.email = email;
+        return this;
     }
 
     public String getLocation() {

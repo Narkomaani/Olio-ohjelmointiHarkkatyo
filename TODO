@@ -6,8 +6,9 @@ Sovellus tallentaa käyttäjän toiminnan (käyttäjän syöttämät arvot / tul
 Käyttäjä voi katsoa tallentamiaan tietoja myöhemmin (esim. listata katsomansa elokuva paremmuusjärjestyksessä)
 
 Kirjautuminen:
-Sovelluksella voi olla useampi käyttäjä (ja niiden luominen), tietojen tallennus järkevästi jonnekin
-Kirjautumisen salasana noudattaa hyvän salasanan sääntöjä (sisältää vähintään yhden numeron, erikoismerkin, ison ja pienen kirjaimen, on vähintään 12 merkkiä pitkä)
+DONE Kirjautuminen Kirjautuminen applikaatioon
+DONE Sovelluksella voi olla useampi käyttäjä (ja niiden luominen), tietojen tallennus järkevästi jonnekin
+DONE Kirjautumisen salasana noudattaa hyvän salasanan sääntöjä (sisältää vähintään yhden numeron, erikoismerkin, ison ja pienen kirjaimen, on vähintään 12 merkkiä pitkä)
 
 API:t:
 Elokuva-appi kertoo elokuvan IMDB:n arvostelupisteet elokuvasta (https://imdb-api.com/)
@@ -21,3 +22,7 @@ Käyttöliittymä on useammalla kuin yhdellä kielellä
 perusasiat:
 Fragmenttien hyödyntäminen aktiviteettien sijasta käyttöliittymiä rakennettaessa
 Scoped storagen käyttäminen tiedon tallennuksessa (ei vaadi käyttäjän myöntämiä oikeuksia laitteen massamuistiin, vaan toimii omassa “hiekkalaatikossaan”)
+
+Muut:
+saa asetukset toimii
+intergoi preferencet käyttäjien kanssa

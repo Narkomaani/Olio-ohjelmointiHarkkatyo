@@ -23,6 +23,7 @@ import android.view.MenuItem;
 import com.example.ht.movie.HomePageFragment;
 
 import com.example.ht.user.CalendarFragment;
+import com.example.ht.user.UserManager;
 import com.google.android.material.navigation.NavigationView;
 
 
@@ -35,17 +36,19 @@ public class MainActivity extends AppCompatActivity {
     public NavigationView navigation_view;
     public FragmentManager manager;
 
+    public UserManager userManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // variable set-up
         navigation_view = findViewById(R.id.navigation_view);
         drawerLayout = findViewById(R.id.my_drawer_layout);
         toolbar = findViewById(R.id.toolbar);
         manager = getSupportFragmentManager();
-
+        userManager = UserManager.getUserManager();
 
         // giving permission to use the internet
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -72,16 +75,25 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 fragment = null;
-                //This should be cleaned up
                 int itemid = item.getItemId();
-                if (itemid == R.id.nav_settings) {
-                    fragment = new SettingsFragment();
-                } else if ((itemid == R.id.nav_home_page) ){
+
+                // loop to select the fragment
+                if ((itemid == R.id.nav_home_page) ) {
                     fragment = new HomePageFragment();
+                } else if (itemid == R.id.nav_fav_movies) {
+                    // TODO favorite fragment
                 } else if (itemid == R.id.nav_calendar) {
                     fragment = new CalendarFragment();
+                } else if (itemid == R.id.nav_settings) {
+                    fragment = new SettingsFragment();
+                } else if ( itemid == R.id.nav_manage_users) {
+                    // TODO manage user fragment
+                } else if (itemid == R.id.nav_log_out) {
+                    userManager.setCurrentUser(null);
+                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 }
 
+                // if fragment was found, replace and commit it into the window
                 if (fragment != null) {
                     FragmentTransaction transaction = manager.beginTransaction();
                     transaction.replace(R.id.fragment_window, fragment);
