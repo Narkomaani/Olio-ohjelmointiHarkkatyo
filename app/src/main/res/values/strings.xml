@@ -1,10 +1,16 @@
 <resources>
     <string name="app_name">OnlyKino</string>
 
-    <!--to toggle the open close button
-        of the navigation drawer-->
+    <!--navigation menu strings-->
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
+
+    <string name="nav_home_page">Home Page</string>
+    <string name="nav_fav_movies">Favorite movies</string>
+    <string name="nav_calendar">Calendar</string>
+    <string name="nav_settings">Settings</string>
+    <string name="nav_manage">Manage user</string>
+    <string name="nav_log_out">Log out</string>
 
     <!-- Home Page Strings -->
     <string name="theaters">Finnkino Theaters:</string>

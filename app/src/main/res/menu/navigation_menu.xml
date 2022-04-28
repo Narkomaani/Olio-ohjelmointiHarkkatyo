@@ -1,30 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="HardcodedText">
+    tools:showIn="navigation_view">
 
-    <group >
+    <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home_page"
-            android:title="Home Page" />
+            android:title="@string/nav_home_page" />
         <item
             android:id="@+id/nav_fav_movies"
-            android:title="Favorite movies" />
+            android:title="@string/nav_fav_movies" />
         <item
             android:id="@+id/nav_calendar"
-            android:title="Calendar" />
-    </group>
-
-    <group >
+            android:title="@string/nav_calendar" />
         <item
             android:id="@+id/nav_settings"
-            android:title="Settings" />
+            android:title="@string/nav_settings" />
         <item
             android:id="@+id/nav_manage_users"
-            android:title="Manage users" />
+            android:title="@string/nav_manage" />
         <item
             android:id="@+id/nav_log_out"
-            android:title="Log out" />
+            android:title="@string/nav_log_out" />
     </group>
 
 </menu>

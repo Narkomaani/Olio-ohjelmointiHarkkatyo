@@ -6,9 +6,8 @@ Sovellus tallentaa käyttäjän toiminnan (käyttäjän syöttämät arvot / tul
 Käyttäjä voi katsoa tallentamiaan tietoja myöhemmin (esim. listata katsomansa elokuva paremmuusjärjestyksessä)
 
 Kirjautuminen:
-Kirjautuminen applikaatioon    
 Sovelluksella voi olla useampi käyttäjä (ja niiden luominen), tietojen tallennus järkevästi jonnekin
-Kirjautumisen     salasana noudattaa hyvän salasanan sääntöjä (sisältää vähintään yhden numeron, erikoismerkin, ison ja pienen kirjaimen, on vähintään 12 merkkiä pitkä)
+Kirjautumisen salasana noudattaa hyvän salasanan sääntöjä (sisältää vähintään yhden numeron, erikoismerkin, ison ja pienen kirjaimen, on vähintään 12 merkkiä pitkä)
 
 API:t:
 Elokuva-appi kertoo elokuvan IMDB:n arvostelupisteet elokuvasta (https://imdb-api.com/)
