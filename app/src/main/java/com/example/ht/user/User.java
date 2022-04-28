@@ -5,16 +5,15 @@ package com.example.ht.user;
  */
 public class User extends UserProfile {
     private String username = "mattimeikalainen";
-    private int userid = 12345;
-    private String password = "";
+    private String password = "salasana123";
 
 
-    public User(String username, String password, int userid) {
+    public User(String username, String password) {
         setUsername(username);
         setPassword(password);
-        setUserid(userid);
     }
 
+    // empty constructor for debugging
     public User(){
 
     }
@@ -36,11 +35,4 @@ public class User extends UserProfile {
         this.username = username;
     }
 
-    public int getUserid() {
-        return userid;
-    }
-
-    public void setUserid(int userid) {
-        this.userid = userid;
-    }
 }

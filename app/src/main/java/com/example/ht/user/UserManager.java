@@ -2,20 +2,23 @@ package com.example.ht.user;
 
 import java.util.ArrayList;
 
+/***
+ * The Class tha manages users and its data
+ */
 public class UserManager{
 
-    private UserManager userManager;
+    private static UserManager userManager = new UserManager();
     private ArrayList<User> Users;
     private User currentUser;
 
 
     private UserManager() {
+        currentUser = new User();
     }
 
-    public UserManager getUserManager() {
+    public static UserManager getUserManager() {
         return userManager;
     }
-
 
     public User getCurrentUser() {
         return currentUser;
@@ -25,12 +28,4 @@ public class UserManager{
         this.currentUser = currentUser;
     }
 
-    public User getUser(int userid) {
-        for (User user : Users) {
-            if (user.getUserid() == userid) {
-                return user;
-            }
-        }
-        return null;
-    }
 }
