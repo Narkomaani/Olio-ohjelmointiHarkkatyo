@@ -19,6 +19,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -123,6 +125,12 @@ public class CalendarFragment extends Fragment implements CalendarAdapter.OnItem
     }
 
     public void weeklyAction(View view) {
-        startActivity(new Intent(getActivity(), WeekViewFragment.class)); //tää ei jostain syystä toimi, joten kesken
+        //tää ei toimi help
+        FragmentManager fm = getParentFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        Fragment weekViewFragment = new WeekViewFragment();
+        ft.replace(R.id.fragment_calendar, weekViewFragment);
+        ft.addToBackStack(null);
+        ft.commit();
     }
 }
