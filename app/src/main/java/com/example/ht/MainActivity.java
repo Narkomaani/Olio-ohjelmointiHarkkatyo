@@ -80,8 +80,10 @@ public class MainActivity extends AppCompatActivity {
                 // loop to select the fragment
                 if ((itemid == R.id.nav_home_page) ) {
                     fragment = new HomePageFragment();
+                } else if (itemid == R.id.nav_search_movie_imdb) {
+                    fragment = new SearchMovieIMDBFragment();
                 } else if (itemid == R.id.nav_fav_movies) {
-                    // TODO favorite fragment
+                    fragment = new SearchFavouriteMovieFragment();
                 } else if (itemid == R.id.nav_calendar) {
                     fragment = new CalendarFragment();
                 } else if (itemid == R.id.nav_settings) {
