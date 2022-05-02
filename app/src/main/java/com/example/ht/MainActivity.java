@@ -6,24 +6,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.preference.Preference;
 import androidx.preference.PreferenceManager;
 
-import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.MenuItem;
 
-import com.example.ht.movie.HomePageFragment;
-
-import com.example.ht.user.CalendarFragment;
-import com.example.ht.user.UserManager;
+import com.example.ht.Calendar.CalendarFragment;
+import com.example.ht.User.UserManager;
 import com.google.android.material.navigation.NavigationView;
 
 

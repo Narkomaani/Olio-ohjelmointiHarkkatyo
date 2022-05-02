@@ -1,4 +1,4 @@
-package com.example.ht;
+package com.example.ht.movie;
 
 import com.example.ht.movie.Movie;
 
