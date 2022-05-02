@@ -15,11 +15,14 @@ import androidx.preference.PreferenceManager;
 
 import android.os.StrictMode;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.ht.Calendar.CalendarActivity;
 import com.example.ht.Calendar.CalendarFragment;
+import com.example.ht.User.User;
 import com.example.ht.User.UserManager;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -30,13 +33,17 @@ public class MainActivity extends AppCompatActivity {
     public Fragment fragment;
     public NavigationView navigation_view;
     public FragmentManager manager;
+    public View view;
 
     public UserManager userManager;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         // variable set-up
         navigation_view = findViewById(R.id.navigation_view);
@@ -44,11 +51,15 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         manager = getSupportFragmentManager();
         userManager = UserManager.getUserManager();
+        user = userManager.getCurrentUser();
+
 
         // giving permission to use the internet
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
+        // Greet the user
+        Snackbar.make(drawerLayout, "Welcome " + user.getFirstName() + "!", Snackbar.LENGTH_LONG).show();
 
         // setting up toolbar's navigation menu toggle
         setSupportActionBar(toolbar);

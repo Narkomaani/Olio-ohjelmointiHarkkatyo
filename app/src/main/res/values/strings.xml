@@ -44,6 +44,7 @@
     <string name="register_lastname">Enter your last name</string>
     <string name="register_email">Enter your email address</string>
     <string name="register_title">Registration page</string>
+    <string name="register_password_requirements">The Password minimun requirements:\n- Must be atleast 12 characters\n- Must have lower and uppercase Characters</string>
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>

@@ -1,12 +1,15 @@
 package com.example.ht.User;
 
+import android.content.Context;
 import android.util.Patterns;
 
 /**
  * a class to check if username and password are valid
  * code take from Android studio's Login activity example
  */
-public class LoginResult {
+public abstract class LoginResult {
+
+    private static UserManager userManager = UserManager.getUserManager();
 
 
     // A username validation check
@@ -40,9 +43,16 @@ public class LoginResult {
         return password != null && password.trim().length() > 12 && upperFlag && lowerFlag;
     }
 
-    public static boolean validate(String username, String password) {
-        String usr = UserManager.getUserManager().getCurrentUser().getUsername();
-        String pwd = UserManager.getUserManager().getCurrentUser().getPassword();
-        return usr.equals(username) && pwd.equals(password);
+    public static User validate(String username, String password, Context context) {
+        UserDatabase userDB = UserDatabase.getInstance(context);
+        User user = userDB.userDao().findByUsername(username);
+        if (user != null) {
+            if (user.getPassword().equals(password)) {
+                userManager.setCurrentUser(user);
+
+                return user;
+            }
+        }
+        return null;
     }
 }
