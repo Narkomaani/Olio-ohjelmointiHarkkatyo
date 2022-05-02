@@ -126,10 +126,10 @@ public class CalendarFragment extends Fragment implements CalendarAdapter.OnItem
 
     public void weeklyAction(View view) {
         //tää ei toimi help
-        FragmentManager fm = getParentFragmentManager();
+        FragmentManager fm = getActivity().getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         Fragment weekViewFragment = new WeekViewFragment();
-        ft.replace(R.id.fragment_calendar, weekViewFragment);
+        ft.replace(R.id.parentView, weekViewFragment);
         ft.addToBackStack(null);
         ft.commit();
     }
