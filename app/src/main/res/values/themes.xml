@@ -3,14 +3,14 @@
     <style name="Theme.HT" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/Black</item>
-        <item name="colorPrimaryVariant">@color/Gray</item>
-        <item name="colorOnPrimary">@color/White</item>
+        <item name="colorPrimaryVariant">@color/DimGray</item>
+        <item name="colorOnPrimary">@color/Gold</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/Yellow</item>
-        <item name="colorSecondaryVariant">@color/Gold</item>
-        <item name="colorOnSecondary">@color/Black</item>
+        <item name="colorSecondary">@color/Gold</item>
+        <item name="colorSecondaryVariant">@color/Yellow</item>
+        <item name="colorOnSecondary">@color/DimGray</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
     </style>
 
