@@ -66,11 +66,6 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
         startActivity(new Intent(this, EventEditActivity.class));
     }
 
-    /*private void initWidgets() {
-        calendarRecyclerView = getView().findViewById(R.id.calendarRecyclerView);
-        monthYearText = getView().findViewById(R.id.monthYearTextView);
-    }*/
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void setWeekView() {
         monthYearText.setText(monthYearFromDate(CalendarUtils.selectedDate));
