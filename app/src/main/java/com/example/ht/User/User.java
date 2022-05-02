@@ -1,41 +1,88 @@
 package com.example.ht.User;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 /**
  * base class for users, extending userprofile to get its data
  */
-public class User extends UserProfile {
+@Entity(tableName = "user")
+public class User {
 
-    private String username = "mattimeikalainen";
-    private String password = "salasana123";
+    @PrimaryKey(autoGenerate = true)
+    public int uid;
 
+    @ColumnInfo(name = "username")
+    private String username;
+
+    @ColumnInfo(name = "password")
+    private String password;
+
+    @ColumnInfo(name = "first_name")
+    private String FirstName;
+
+    @ColumnInfo(name = "last_name")
+    private String LastName;
+
+    @ColumnInfo(name = "email")
+    private String email;
+
+
+    public User() {
+
+    }
 
     public User(String username, String password) {
         setUsername(username);
         setPassword(password);
     }
 
-    // empty constructor for debugging
-    public User(){
-
+    public int getUid() {
+        return uid;
     }
 
-
-    public String getPassword() {
-        return password;
-    }
-
-    public User setPassword(String password) {
-        this.password = password;
-        return this;
+    public void setUid(int uid) {
+        this.uid = uid;
     }
 
     public String getUsername() {
         return username;
     }
 
-    public User setUsername(String username) {
+    public void setUsername(String username) {
         this.username = username;
-        return this;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getFirstName() {
+        return FirstName;
+    }
+
+    public void setFirstName(String firstName) {
+        FirstName = firstName;
+    }
+
+    public String getLastName() {
+        return LastName;
+    }
+
+    public void setLastName(String lastName) {
+        LastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

@@ -12,6 +12,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.example.ht.User.LoginResult;
+import com.example.ht.User.User;
+import com.example.ht.User.UserDao;
+import com.example.ht.User.UserDatabase;
 import com.example.ht.User.UserManager;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -27,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     private SharedPreferences.Editor editor;
     private UserManager userManager;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,16 +42,14 @@ public class LoginActivity extends AppCompatActivity {
         registerButton = findViewById(R.id.gotoRegisterButton);
         rememberMe = findViewById(R.id.rememberMe);
 
-        sharedPreferences = getApplicationContext().getSharedPreferences("userDB", MODE_PRIVATE);
-        editor = sharedPreferences.edit();
         userManager = UserManager.getUserManager();
 
 
         // if checkbox was checked, import credentials
         if (sharedPreferences != null) {
                 if (sharedPreferences.getBoolean("remember_me_checkbox", false)) {
-                    username.setText(sharedPreferences.getString("last_used_username", ""));
-                    password.setText(sharedPreferences.getString("last_used_password", ""));
+                    username.setText("");
+                    password.setText("");
                     rememberMe.setChecked(true);
                 }
         }
@@ -82,13 +84,8 @@ public class LoginActivity extends AppCompatActivity {
                 Snackbar.make(view, "Please enter all details.", Snackbar.LENGTH_LONG).show();
             } else {
                 // validate login credentials
-                if (LoginResult.validate(inputUsername, inputPassword)) {
-
-                    editor.putString("last_used_username", inputUsername);
-                    editor.putString("last_used_password", inputPassword);
-
-
-                    Snackbar.make(view, "Login successful.", Snackbar.LENGTH_LONG).show();
+                User user = LoginResult.validate(inputUsername, inputPassword, getApplicationContext());
+                if (user != null) {
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 } else {
                     Snackbar.make(view, "Invalid login credentials.", Snackbar.LENGTH_LONG).show();
