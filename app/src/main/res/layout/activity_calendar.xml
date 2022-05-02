@@ -7,11 +7,11 @@
     android:id="@+id/fragment_calendar">
 
     <Button
-        android:id="@+id/addEventButton"
+        android:id="@+id/weeklyButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Add event"
+        android:text="Weekly"
         android:textStyle="bold"
         android:textSize="20sp"/>
 
@@ -30,7 +30,7 @@
             android:text="@string/back"
             android:textStyle="bold"
             android:textSize="20sp"/>
-        
+
         <TextView
             android:id="@+id/monthYearTextView"
             android:layout_width="0dp"

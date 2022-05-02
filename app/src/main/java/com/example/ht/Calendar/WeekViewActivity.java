@@ -3,43 +3,44 @@ package com.example.ht.Calendar;
 import static com.example.ht.Calendar.CalendarUtils.daysInWeekArray;
 import static com.example.ht.Calendar.CalendarUtils.monthYearFromDate;
 
-import android.os.Build;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Lifecycle;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ht.R;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class WeekViewFragment extends Fragment implements CalendarAdapter.OnItemListener {
+public class WeekViewActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener {
 
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
-
+    private ListView eventListView;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.week_view, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_week_view);
 
-        calendarRecyclerView = rootView.findViewById(R.id.calendarRecyclerView);
-        monthYearText = rootView.findViewById(R.id.monthYearTextView);
+        calendarRecyclerView = findViewById(R.id.calendarRecyclerView);
+        monthYearText = findViewById(R.id.monthYearTextView);
+        eventListView = findViewById(R.id.eventListView);
         setWeekView();
 
-        Button newEventButton = rootView.findViewById(R.id.newEventButton);
+        Button newEventButton = findViewById(R.id.newEventButton);
         newEventButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,7 +48,6 @@ public class WeekViewFragment extends Fragment implements CalendarAdapter.OnItem
             }
         });
 
-        return rootView;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -63,7 +63,7 @@ public class WeekViewFragment extends Fragment implements CalendarAdapter.OnItem
     }
 
     public void newEventAction(View view) {
-
+        startActivity(new Intent(this, EventEditActivity.class));
     }
 
     /*private void initWidgets() {
@@ -76,20 +76,28 @@ public class WeekViewFragment extends Fragment implements CalendarAdapter.OnItem
         monthYearText.setText(monthYearFromDate(CalendarUtils.selectedDate));
         ArrayList<LocalDate> days = daysInWeekArray(CalendarUtils.selectedDate);
 
-        CalendarAdapter calendarAdapter = new CalendarAdapter(days, this);
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getActivity().getApplicationContext(), 7);
+        CalendarAdapter calendarAdapter = new CalendarAdapter(days, (CalendarAdapter.OnItemListener) this);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this.getApplicationContext(), 7);
         calendarRecyclerView.setLayoutManager(layoutManager);
         calendarRecyclerView.setAdapter(calendarAdapter);
+        setEventAdapter();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void onItemClick(int position, String dayText) {
-        String message = "Selected date " + dayText + " " + monthYearFromDate(CalendarUtils.selectedDate);
-        Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
+    public void onItemClick(int position, LocalDate date) {
+        CalendarUtils.selectedDate = date;
+        setWeekView();
     }
 
     @Override
-    public void onItemClick(int position, LocalDate date) {
+    protected void onResume() {
+        super.onResume();
+        setEventAdapter();
+    }
 
+    private void setEventAdapter() {
+        ArrayList<Event> dailyEvents = Event.eventsForDate(CalendarUtils.selectedDate);
+        EventAdapter eventAdapter = new EventAdapter(getApplicationContext(), dailyEvents);
+        eventListView.setAdapter(eventAdapter);
     }
 }

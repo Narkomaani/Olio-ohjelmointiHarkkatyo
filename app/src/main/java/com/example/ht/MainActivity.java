@@ -16,6 +16,7 @@ import androidx.preference.PreferenceManager;
 import android.os.StrictMode;
 import android.view.MenuItem;
 
+import com.example.ht.Calendar.CalendarActivity;
 import com.example.ht.Calendar.CalendarFragment;
 import com.example.ht.User.UserManager;
 import com.google.android.material.navigation.NavigationView;
@@ -79,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
                 } else if (itemid == R.id.nav_fav_movies) {
                     fragment = new SearchFavouriteMovieFragment();
                 } else if (itemid == R.id.nav_calendar) {
-                    fragment = new CalendarFragment();
+                    //fragment = new CalendarFragment();
+                    openCalendarActivity();
                 } else if (itemid == R.id.nav_settings) {
                     fragment = new SettingsFragment();
                 } else if ( itemid == R.id.nav_manage_users) {
@@ -100,6 +102,11 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    private void openCalendarActivity() {
+        Intent intent = new Intent(this, CalendarActivity.class);
+        startActivity(intent);
     }
 
     // override the onOptionsItemSelected()

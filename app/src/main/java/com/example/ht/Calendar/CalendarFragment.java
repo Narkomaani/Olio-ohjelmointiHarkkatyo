@@ -64,11 +64,11 @@ public class CalendarFragment extends Fragment implements CalendarAdapter.OnItem
             }
         });
 
-        Button weeklyButton = rootView.findViewById(R.id.weeklyButton);
+        Button weeklyButton = rootView.findViewById(R.id.addEventButton);
         weeklyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                weeklyAction(view);
+
             }
         });
         
@@ -99,7 +99,6 @@ public class CalendarFragment extends Fragment implements CalendarAdapter.OnItem
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    @Override
     public void onItemClick(int position, String dayText) {
         if(dayText.equals("")) {
             String message = "Selected date " + dayText + " " + monthYearFromDate(CalendarUtils.selectedDate);
@@ -119,13 +118,8 @@ public class CalendarFragment extends Fragment implements CalendarAdapter.OnItem
         setMonthView();
     }
 
-    public void weeklyAction(View view) {
-        //tää ei toimi help
-        FragmentManager fm = getActivity().getSupportFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        Fragment weekViewFragment = new WeekViewFragment();
-        ft.replace(R.id.parentView, weekViewFragment);
-        ft.addToBackStack(null);
-        ft.commit();
+    @Override
+    public void onItemClick(int position, LocalDate date) {
+
     }
 }
