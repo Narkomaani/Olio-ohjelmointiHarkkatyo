@@ -1,7 +1,7 @@
-package com.example.ht.user;
+package com.example.ht.Calendar;
 
-import static com.example.ht.user.CalendarUtils.daysInWeekArray;
-import static com.example.ht.user.CalendarUtils.monthYearFromDate;
+import static com.example.ht.Calendar.CalendarUtils.daysInWeekArray;
+import static com.example.ht.Calendar.CalendarUtils.monthYearFromDate;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -83,9 +83,13 @@ public class WeekViewFragment extends Fragment implements CalendarAdapter.OnItem
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    @Override
     public void onItemClick(int position, String dayText) {
         String message = "Selected date " + dayText + " " + monthYearFromDate(CalendarUtils.selectedDate);
         Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onItemClick(int position, LocalDate date) {
+
     }
 }

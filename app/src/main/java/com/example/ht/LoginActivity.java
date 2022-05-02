@@ -11,8 +11,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import com.example.ht.user.LoginResult;
-import com.example.ht.user.UserManager;
+import com.example.ht.User.LoginResult;
+import com.example.ht.User.UserManager;
 import com.google.android.material.snackbar.Snackbar;
 
 public class LoginActivity extends AppCompatActivity {

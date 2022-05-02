@@ -1,13 +1,30 @@
-package com.example.ht.user;
+package com.example.ht.User;
+
+import androidx.room.ColumnInfo;
+import androidx.room.Dao;
+import androidx.room.Delete;
+import androidx.room.Insert;
+import androidx.room.PrimaryKey;
+import androidx.room.Query;
+
+import java.util.List;
 
 /**
  * class holding all displayable data of user
  */
 public class UserProfile {
+
+    @PrimaryKey
+    public int uid;
+
+    @ColumnInfo(name = "first_name")
     private String FirstName = "Matti";
+
+    @ColumnInfo(name = "last_name")
     private String LastName = "Meikäläinen";
+
+    @ColumnInfo(name = "email")
     private String email = "matti.meikalainen@gmail.com";
-    private String location = "Mattila";
 
     public UserProfile setFirstName(String FirstName) {
         this.FirstName = FirstName;
@@ -35,12 +52,5 @@ public class UserProfile {
         this.email = email;
         return this;
     }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
 }
+

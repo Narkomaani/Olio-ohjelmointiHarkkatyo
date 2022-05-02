@@ -12,25 +12,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HT.NoActionBar">
         <activity
+            android:name=".Calendar.EventEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Calendar.WeekViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Calendar.CalendarActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegistrationActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true" >
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".SettingsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false">
-
         </activity>
     </application>
 

@@ -1,11 +1,10 @@
-package com.example.ht.user;
+package com.example.ht.Calendar;
 
 import static android.app.ProgressDialog.show;
 
-import static com.example.ht.user.CalendarUtils.daysInMonthArray;
-import static com.example.ht.user.CalendarUtils.monthYearFromDate;
+import static com.example.ht.Calendar.CalendarUtils.daysInMonthArray;
+import static com.example.ht.Calendar.CalendarUtils.monthYearFromDate;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,16 +18,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.ht.MainActivity;
 import com.example.ht.R;
 
 import java.time.LocalDate;
-import java.time.Year;
-import java.time.YearMonth;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 
@@ -67,11 +64,11 @@ public class CalendarFragment extends Fragment implements CalendarAdapter.OnItem
             }
         });
 
-        Button weeklyButton = rootView.findViewById(R.id.weeklyButton);
+        Button weeklyButton = rootView.findViewById(R.id.addEventButton);
         weeklyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                weeklyAction(view);
+
             }
         });
         
@@ -102,7 +99,6 @@ public class CalendarFragment extends Fragment implements CalendarAdapter.OnItem
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    @Override
     public void onItemClick(int position, String dayText) {
         if(dayText.equals("")) {
             String message = "Selected date " + dayText + " " + monthYearFromDate(CalendarUtils.selectedDate);
@@ -122,7 +118,8 @@ public class CalendarFragment extends Fragment implements CalendarAdapter.OnItem
         setMonthView();
     }
 
-    public void weeklyAction(View view) {
-        startActivity(new Intent(getActivity(), WeekViewFragment.class)); //tää ei jostain syystä toimi, joten kesken
+    @Override
+    public void onItemClick(int position, LocalDate date) {
+
     }
 }

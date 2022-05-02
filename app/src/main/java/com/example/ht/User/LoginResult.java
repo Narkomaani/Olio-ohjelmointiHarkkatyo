@@ -1,9 +1,6 @@
-package com.example.ht.user;
+package com.example.ht.User;
 
 import android.util.Patterns;
-
-import java.util.ArrayList;
-import java.util.Locale;
 
 /**
  * a class to check if username and password are valid

@@ -1,6 +1,5 @@
-package com.example.ht.user;
+package com.example.ht.User;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,6 +45,9 @@ public class UserManager{
         }
         return false;
     }
+
+
+
 
     public void saveData(Map<String, ?> preferenceMap) {
 

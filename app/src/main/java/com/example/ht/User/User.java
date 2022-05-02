@@ -1,9 +1,10 @@
-package com.example.ht.user;
+package com.example.ht.User;
 
 /**
  * base class for users, extending userprofile to get its data
  */
 public class User extends UserProfile {
+
     private String username = "mattimeikalainen";
     private String password = "salasana123";
 

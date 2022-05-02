@@ -1,4 +1,4 @@
-package com.example.ht.user;
+package com.example.ht.Calendar;
 
 import android.graphics.Color;
 import android.os.Build;
@@ -36,7 +36,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder> {
         } else {
             layoutParams.height = (int) parent.getHeight();
         }
-        return new CalendarViewHolder(view, onItemListener);
+        return new CalendarViewHolder(view, onItemListener, days);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -60,6 +60,6 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder> {
     }
 
     public interface OnItemListener {
-        void onItemClick(int position, String dayText);
+        void onItemClick(int position, LocalDate date);
     }
 }

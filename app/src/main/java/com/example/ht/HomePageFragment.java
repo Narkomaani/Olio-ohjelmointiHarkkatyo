@@ -1,4 +1,4 @@
-package com.example.ht.movie;
+package com.example.ht;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
 import com.example.ht.R;
+import com.example.ht.movie.TheaterManager;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

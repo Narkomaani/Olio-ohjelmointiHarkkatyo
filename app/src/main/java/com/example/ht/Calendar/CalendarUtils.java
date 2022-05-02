@@ -1,4 +1,4 @@
-package com.example.ht.user;
+package com.example.ht.Calendar;
 
 import android.os.Build;
 
@@ -6,6 +6,7 @@ import androidx.annotation.RequiresApi;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -65,5 +66,17 @@ public class CalendarUtils {
             }
         }
         return null;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static String formattedDate(LocalDate date) {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+        return date.format(dateTimeFormatter);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static String formattedTime(LocalTime time) {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("hh:mm:ss a");
+        return time.format(dateTimeFormatter);
     }
 }
