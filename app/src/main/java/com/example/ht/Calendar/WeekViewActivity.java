@@ -61,6 +61,16 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_week_view);
 
+        Intent intentReceive = getIntent();
+        String fragmentToOpen = intentReceive.getStringExtra("keyEE");
+        System.out.println(fragmentToOpen + "WV");
+        if (fragmentToOpen != null) {
+            Intent intentSend = new Intent(getApplicationContext(), CalendarActivity.class);
+            intentSend.putExtra("keyWV", fragmentToOpen);
+            startActivity(intentSend);
+            finish();
+        }
+
         // variable set-up
         navigation_view = findViewById(R.id.navigation_view);
         drawerLayout = findViewById(R.id.my_drawer_layout);
@@ -94,22 +104,38 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 fragment = null;
                 int itemid = item.getItemId();
+                Intent intentSend = new Intent(getApplicationContext(), CalendarActivity.class);
 
                 // loop to select the fragment
                 if ((itemid == R.id.nav_home_page) ) {
-                    fragment = new HomePageFragment();
-                    openFragment();
+                    /*fragment = new HomePageFragment();
+                    finish();*/
+                    intentSend.putExtra("keyWV", "homePage");
+                    startActivity(intentSend);
+                    finish();
                 } else if (itemid == R.id.nav_search_movie_imdb) {
-                    fragment = new SearchMovieIMDBFragment();
-                    openFragment();
+                    /*fragment = new SearchMovieIMDBFragment();
+                    finish();*/
+                    intentSend.putExtra("keyWV", "searchMovie");
+                    startActivity(intentSend);
+                    finish();
                 } else if (itemid == R.id.nav_fav_movies) {
-                    fragment = new SearchFavouriteMovieFragment();
-                    openFragment();
+                    /*fragment = new SearchFavouriteMovieFragment();
+                    finish();*/
+                    intentSend.putExtra("keyWV", "favoriteMovie");
+                    startActivity(intentSend);
+                    finish();
                 } else if (itemid == R.id.nav_settings) {
-                    fragment = new SettingsFragment();
-                    openFragment();
+                    /*fragment = new SettingsFragment();
+                    finish();*/
+                    intentSend.putExtra("keyWV", "settings");
+                    startActivity(intentSend);
+                    finish();
                 } else if (itemid == R.id.nav_calendar) {
-                    startActivity(new Intent(WeekViewActivity.this, CalendarActivity.class));
+                    /*startActivity(new Intent(WeekViewActivity.this, CalendarActivity.class));
+                    finish();*/
+                    intentSend.putExtra("keyWV", "calendar");
+                    startActivity(intentSend);
                     finish();
                 } else if ( itemid == R.id.nav_manage_users) {
                     // TODO manage user fragment
@@ -143,12 +169,6 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
             }
         });
 
-    }
-
-    private void openFragment() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)

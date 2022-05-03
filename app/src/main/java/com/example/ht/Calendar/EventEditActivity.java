@@ -87,22 +87,38 @@ public class EventEditActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 fragment = null;
                 int itemid = item.getItemId();
+                Intent intentSend = new Intent(getApplicationContext(), WeekViewActivity.class);
 
                 // loop to select the fragment
                 if ((itemid == R.id.nav_home_page) ) {
-                    fragment = new HomePageFragment();
-                    openFragment();
+                    /*fragment = new HomePageFragment();
+                    finish();*/
+                    intentSend.putExtra("keyEE", "homePage");
+                    startActivity(intentSend);
+                    finish();
                 } else if (itemid == R.id.nav_search_movie_imdb) {
-                    fragment = new SearchMovieIMDBFragment();
-                    openFragment();
+                    /*fragment = new SearchMovieIMDBFragment();
+                    finish();*/
+                    intentSend.putExtra("keyEE", "searchMovie");
+                    startActivity(intentSend);
+                    finish();
                 } else if (itemid == R.id.nav_fav_movies) {
-                    fragment = new SearchFavouriteMovieFragment();
-                    openFragment();
+                    /*fragment = new SearchFavouriteMovieFragment();
+                    finish();*/
+                    intentSend.putExtra("keyEE", "favoriteMovie");
+                    startActivity(intentSend);
+                    finish();
                 } else if (itemid == R.id.nav_settings) {
-                    fragment = new SettingsFragment();
-                    openFragment();
+                    /*fragment = new SettingsFragment();
+                    finish();*/
+                    intentSend.putExtra("keyEE", "settings");
+                    startActivity(intentSend);
+                    finish();
                 } else if (itemid == R.id.nav_calendar) {
-                    startActivity(new Intent(EventEditActivity.this, CalendarActivity.class));
+                    /*startActivity(new Intent(EventEditActivity.this, CalendarActivity.class));
+                    finish();*/
+                    intentSend.putExtra("keyEE", "calendar");
+                    startActivity(intentSend);
                     finish();
                 } else if ( itemid == R.id.nav_manage_users) {
                     // TODO manage user fragment
@@ -127,12 +143,6 @@ public class EventEditActivity extends AppCompatActivity {
         time = LocalTime.now();
         eventDateTV.setText("Date: " + CalendarUtils.formattedDate(CalendarUtils.selectedDate));
         eventTimeTV.setText("Time: " + CalendarUtils.formattedTime(time));
-    }
-
-    private void openFragment() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
     }
 
     private void initWidgets() {

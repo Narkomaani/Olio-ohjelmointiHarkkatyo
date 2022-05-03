@@ -13,8 +13,15 @@
             android:defaultValue="false"
             android:key="dark_mode"
             android:title="@string/darkmode" />
-    </PreferenceCategory>
+        <EditTextPreference
+            app:title="Change email address"
+            android:key="emailAddress"
+            android:summary="Email address"/>
+        <EditTextPreference
+            app:title="Change password"
+            android:key="password"/>
 
+    </PreferenceCategory>
 
 
 

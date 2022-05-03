@@ -2,27 +2,25 @@ package com.example.ht;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
-
+import android.os.UserManager;
+import androidx.preference.EditTextPreference;
 import androidx.preference.PreferenceFragmentCompat;
+
 
 public class SettingsFragment extends PreferenceFragmentCompat {
 
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
-
+    UserManager userManager;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-
-
         setPreferencesFromResource(R.xml.preferences, rootKey);
+
+        EditTextPreference emailAddressPreference = findPreference("emailAddress");
+        emailAddressPreference.setSummary("testi");
+
+        EditTextPreference passwordPreference = findPreference("password");
 
 
     }
