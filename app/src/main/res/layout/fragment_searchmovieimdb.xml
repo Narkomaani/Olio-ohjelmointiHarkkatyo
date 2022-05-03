@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="24dp"
-        android:text="Search"
+        android:text="@string/search"
         app:layout_constraintStart_toEndOf="@+id/searchtitleimdb"
         app:layout_constraintTop_toTopOf="parent" />
 

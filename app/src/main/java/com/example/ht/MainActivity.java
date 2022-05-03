@@ -118,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
             transaction.commit();
         }
 
+        // receive data from other fragments regarding what fragment to open
         Intent intentReceive = getIntent();
         String fragmentToOpen = intentReceive.getStringExtra("keyCA");
         System.out.println(fragmentToOpen + "MA");
@@ -167,6 +168,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // open fragments or an activity for calendar
     private void openFragment(String fragmentToOpen) {
         System.out.println(fragmentToOpen);
         if (fragmentToOpen.equals("homePage")) {

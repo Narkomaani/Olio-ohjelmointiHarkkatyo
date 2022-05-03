@@ -16,12 +16,11 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class SearchMovieIMDB {
-    private static String API_key = "k_b2jgihvr/";
     //The job of this class is to take the given movie title/persons name string from SearchMovieIMDBFragment, and show every movie
     //and details of a clicked movie
 
+    private static String API_key = "k_w4cf6g39/"; //Needs to have / at the end as it will be easier to deal with given end id to the urls.
 
-    //A reader for name is given and every movie/show they have been in will be showed
     public static ArrayList<String> readMovieJson(String urlid) {
         //This class' objective is to bring out the specific movie id out
         String fronturl = "https://imdb-api.com/en/API/SearchMovie/";
@@ -47,30 +46,23 @@ public class SearchMovieIMDB {
         return imdbMovieArray;
     }
     public static String readMovieDetailsJson(String givenText) {
-        //This classes objective is to bring out the specific movies info, should wait for button press
-        //
-        String fronturl = ""; //Todo add front url
+        //This functions objective is to bring out the specific movies info, movies id is givenText
+        // and it will produce Movie Rating and return it
+        String fronturl = "https://imdb-api.com/API/Ratings/";
         String movieid = givenText;
         String json = getJSON(fronturl,movieid);
-        String something = null;
-        //System.out.println("JSON: "+json);
-        //makes the
+        String ImdbRating = null;
         if (json != null){
             try {
-                //could the run time be shortened?
-                //Change, havent touched yet
                 JSONObject jobject = new JSONObject(json);
-                JSONArray jarray = jobject.getJSONArray("results");
-                System.out.println(jarray.getJSONObject(0).getString("id"));
 
-
-
+                ImdbRating = jobject.getString("imDb");
 
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-        return something;
+        return ImdbRating;
     }
 
     public static String readPersonIDJson(String urlid) { // How does static affect if i were to use other methods
@@ -101,7 +93,7 @@ public class SearchMovieIMDB {
     public static ArrayList<String> readPersonMoviesJson(String givenText){
         //This functions job is to take in the persons id and find the movies assoicated with the name
         String frontUrl = "https://imdb-api.com/en/API/Name/";
-        String urlid = readPersonIDJson(givenText); //todo remeber to take off comment
+        String urlid = readPersonIDJson(givenText);
 
         ArrayList<String> imdbMovieArray = new ArrayList<>();
 
@@ -111,9 +103,12 @@ public class SearchMovieIMDB {
                 JSONObject jobject = new JSONObject(json);
                 JSONArray jarray = jobject.getJSONArray("castMovies");
                 for (int i=0; i<jarray.length(); i++) {
-                    System.out.println(jarray.getJSONObject(i).getString("id"));
-                    imdbMovieArray.add("\nTitle: " + jarray.getJSONObject(i).getString("title") +"\nYear: " + jarray.getJSONObject(i).getString("year") +"\nImdb Id: " + jarray.getJSONObject(i).getString("id") +"\n");
 
+                    //Cheks if persons role is actor or director
+                    String role = jarray.getJSONObject(i).getString("role");
+                    if (role.equals("Actor") || role.equals("Director")) {
+                        imdbMovieArray.add("\nTitle: " + jarray.getJSONObject(i).getString("title") + "\nYear: " + jarray.getJSONObject(i).getString("year") + "\nImdb Id: " + jarray.getJSONObject(i).getString("id") + "\n");
+                    }
 
                 }
 
