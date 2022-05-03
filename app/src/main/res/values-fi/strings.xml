@@ -73,4 +73,39 @@
     <string name="back"><![CDATA[<-]]></string>
     <string name="forward"><![CDATA[->]]></string>
     <string name="search_specific_movie">Etsi tietty elokuva</string>
+
+    <!-- event cell strings -->
+    <string name="event">Tapahtuma</string>
+
+    <!-- calendar strings -->
+    <string name="apr">Huhtikuu</string>
+    <string name="may">Toukokuu</string>
+    <string name="jun">Kesäkuu</string>
+    <string name="jul">Heinäkuu</string>
+    <string name="aug">Elokuu</string>
+    <string name="sep">Syyskuu</string>
+    <string name="oct">Lokakuu</string>
+    <string name="nov">Marraskuu</string>
+    <string name="dec">Jouluu</string>
+    <string name="jan">Tammikuu</string>
+    <string name="feb">Helmikuu</string>
+    <string name="mar">Maaliskuu</string>
+
+    <string name="mon">MA</string>
+    <string name="tue">TI</string>
+    <string name="wed">KE</string>
+    <string name="thu">TO</string>
+    <string name="fri">PE</string>
+    <string name="sat">LA</string>
+    <string name="sun">SU</string>
+
+    <string name="new_event">Uusi tapahtuma</string>
+
+    <string name="weekly">Viikko</string>
+
+    <!-- event edit strings -->
+    <string name="event_name">Nimi:</string>
+    <string name="event_date">Päivä:</string>
+    <string name="event_time">Aika:</string>
+    <string name="event_save">Tallenna</string>
 </resources>
