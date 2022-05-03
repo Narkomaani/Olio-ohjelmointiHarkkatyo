@@ -60,6 +60,7 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
 
+        // receive information from other variable regarding what fragment to open
         Intent intentReceive = getIntent();
         String fragmentToOpen = intentReceive.getStringExtra("keyWV");
         System.out.println(fragmentToOpen + "CA");
@@ -107,26 +108,18 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
 
                 // loop to select the fragment
                 if ((itemid == R.id.nav_home_page) ) {
-                    /*fragment = new HomePageFragment();
-                    finish();*/
                     intentSend.putExtra("keyCA", "homePage");
                     startActivity(intentSend);
                     finish();
                 } else if (itemid == R.id.nav_search_movie_imdb) {
-                    /*fragment = new SearchMovieIMDBFragment();
-                    finish();*/
                     intentSend.putExtra("keyCA", "searchMovie");
                     startActivity(intentSend);
                     finish();
                 } else if (itemid == R.id.nav_fav_movies) {
-                    /*fragment = new SearchFavouriteMovieFragment();
-                    finish();*/
                     intentSend.putExtra("keyCA", "favoriteMovie");
                     startActivity(intentSend);
                     finish();
                 } else if (itemid == R.id.nav_settings) {
-                    /*fragment = new SettingsFragment();
-                    finish();*/
                     intentSend.putExtra("keyCA", "settings");
                     startActivity(intentSend);
                     finish();

@@ -108,32 +108,22 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
 
                 // loop to select the fragment
                 if ((itemid == R.id.nav_home_page) ) {
-                    /*fragment = new HomePageFragment();
-                    finish();*/
                     intentSend.putExtra("keyWV", "homePage");
                     startActivity(intentSend);
                     finish();
                 } else if (itemid == R.id.nav_search_movie_imdb) {
-                    /*fragment = new SearchMovieIMDBFragment();
-                    finish();*/
                     intentSend.putExtra("keyWV", "searchMovie");
                     startActivity(intentSend);
                     finish();
                 } else if (itemid == R.id.nav_fav_movies) {
-                    /*fragment = new SearchFavouriteMovieFragment();
-                    finish();*/
                     intentSend.putExtra("keyWV", "favoriteMovie");
                     startActivity(intentSend);
                     finish();
                 } else if (itemid == R.id.nav_settings) {
-                    /*fragment = new SettingsFragment();
-                    finish();*/
                     intentSend.putExtra("keyWV", "settings");
                     startActivity(intentSend);
                     finish();
                 } else if (itemid == R.id.nav_calendar) {
-                    /*startActivity(new Intent(WeekViewActivity.this, CalendarActivity.class));
-                    finish();*/
                     intentSend.putExtra("keyWV", "calendar");
                     startActivity(intentSend);
                     finish();
