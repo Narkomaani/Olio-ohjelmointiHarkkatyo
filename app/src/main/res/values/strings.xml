@@ -66,4 +66,39 @@
     <string name="back"><![CDATA[<-]]></string>
     <string name="forward"><![CDATA[->]]></string>
     <string name="search_specific_movie">Search Specific Movie</string>
+
+    <!-- event cell strings -->
+    <string name="event">Event</string>
+
+    <!-- calendar strings -->
+    <string name="apr">April</string>
+    <string name="may">May</string>
+    <string name="jun">June</string>
+    <string name="jul">July</string>
+    <string name="aug">August</string>
+    <string name="sep">September</string>
+    <string name="oct">October</string>
+    <string name="nov">November</string>
+    <string name="dec">December</string>
+    <string name="jan">January</string>
+    <string name="feb">February</string>
+    <string name="mar">March</string>
+
+    <string name="mon">MON</string>
+    <string name="tue">TUE</string>
+    <string name="wed">WED</string>
+    <string name="thu">THU</string>
+    <string name="fri">FRI</string>
+    <string name="sat">SAT</string>
+    <string name="sun">SUN</string>
+
+    <string name="new_event">New Event</string>
+    
+    <string name="weekly">Weekly</string>
+    
+    <!-- event edit strings -->
+    <string name="event_name">Name:</string>
+    <string name="event_date">Date:</string>
+    <string name="event_time">Time:</string>
+    <string name="event_save">Save</string>
 </resources>
