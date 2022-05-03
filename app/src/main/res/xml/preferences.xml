@@ -3,10 +3,11 @@
 
     <PreferenceCategory app:title="@string/settings">
         <ListPreference
+            app:defaultValue="en"
             app:entries="@array/languages_array"
             app:entryValues="@array/languages_values"
-            app:key="lang"
-            app:title="Language"
+            app:key="language"
+            app:title="@string/title_language"
             app:useSimpleSummaryProvider="true" />
         <SwitchPreference
             android:defaultValue="false"
@@ -14,15 +15,11 @@
             android:title="@string/darkmode" />
         <EditTextPreference
             app:title="Change email address"
-            android:key="emailAddress"
+            android:key="email"
             android:summary="Email address"/>
         <EditTextPreference
             app:title="Change password"
             android:key="password"/>
 
     </PreferenceCategory>
-
-
-
-
 </PreferenceScreen>

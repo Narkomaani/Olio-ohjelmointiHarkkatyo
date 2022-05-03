@@ -22,7 +22,7 @@ public class SearchMovieIMDB {
     private static String API_key = "k_w4cf6g39/"; //Needs to have / at the end as it will be easier to deal with given end id to the urls.
 
     public static ArrayList<String> readMovieJson(String urlid) {
-        //This classes objective is to bring out the specific movie id out
+        //This class' objective is to bring out the specific movie id out
         String fronturl = "https://imdb-api.com/en/API/SearchMovie/";
         //String urlid = "leon the professional";
         String json = getJSON(fronturl,urlid );

@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public class UserManager{
 
-    private static UserManager userManager = new UserManager();
+    private static final UserManager userManager = new UserManager();
     private User currentUser;
 
 

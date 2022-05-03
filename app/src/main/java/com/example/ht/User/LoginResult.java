@@ -49,7 +49,6 @@ public abstract class LoginResult {
         if (user != null) {
             if (user.getPassword().equals(password)) {
                 userManager.setCurrentUser(user);
-
                 return user;
             }
         }

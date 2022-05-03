@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">OnlyKino</string>
+    <string name="language">English</string>
 
     <!--navigation menu strings-->
     <string name="nav_open">Open</string>
@@ -16,27 +17,35 @@
     <!-- Home Page Strings -->
     <string name="theaters">Finnkino Theaters:</string>
     <string name="search">Search</string>
+    <string name="hello">Hello </string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="email">Email</string>
 
     <!-- Settings Strings -->
     <string name="settings">Settings</string>
     <string-array name="languages_array">
-        <item>Finnish</item>
         <item>English</item>
+        <item>Finnish</item>
     </string-array>
     <string name="darkmode">Enable Dark mode</string>
-
     <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_language">Language</string>
 
     <!-- Login Strings -->
     <string name="prompt_username">Enter your username</string>
     <string name="prompt_password">Enter your Password</string>
     <string name="sign_in">Sign in</string>
     <string name="register">Register</string>
-    <string name="welcome">"Welcome!"</string>
+    <string name="welcome">"Welcome "</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">invalid password</string>
     <string name="login_failed">"Login failed"</string>
     <string name="login_remember">Remember me</string>
+    <string name="login_empty">Please enter all details.</string>
+    <string name="login_invalid">Invalid login credentials.</string>
 
     <!-- register Strings -->
     <string name="register_username">Enter a new username</string>
@@ -45,16 +54,15 @@
     <string name="register_lastname">Enter your last name</string>
     <string name="register_email">Enter your email address</string>
     <string name="register_title">Registration page</string>
-    <string name="register_password_requirements">The Password minimum requirements:\n- Must be atleast 12 characters\n- Must have lower and uppercase Characters</string>
-
-    <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
+    <string name="register_password_requirements">The Password minimun requirements:\n- Must be atleast 12 characters\n- Must have lower and uppercase Characters</string>
+    <string name="register_enter">Please enter</string>
+    <string name="register_successful">Registration successful!</string>
+    <string name="register_username_taken">Username already taken.</string>
+    <string name="register_invalid">please enter a valid username and password</string>
 
     <!-- pre-generated strings -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="back"><![CDATA[<-]]></string>
     <string name="forward"><![CDATA[->]]></string>
     <string name="search_specific_movie">Search Specific Movie</string>
-    <string name="language">English</string>
 </resources>

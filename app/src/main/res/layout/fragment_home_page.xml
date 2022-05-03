@@ -5,7 +5,7 @@
 
     <Spinner
         android:id="@+id/theater_spinner"
-        android:layout_width="300dp"
+        android:layout_width="280dp"
         android:layout_height="48dp"
 
         android:layout_marginStart="3dp"
@@ -14,7 +14,7 @@
 
     <Spinner
         android:id="@+id/event_spinner"
-        android:layout_width="300dp"
+        android:layout_width="280dp"
         android:layout_height="48dp"
 
         android:layout_below="@+id/theater_spinner"
@@ -34,7 +34,7 @@
         android:id="@+id/searchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="310dp"
+        android:layout_marginStart="290dp"
         android:layout_marginTop="98dp"
         android:text="@string/search" />
 
@@ -42,6 +42,6 @@
         android:id="@+id/movieList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="300dp" />
+        android:layout_marginTop="150dp" />
 
 </RelativeLayout>

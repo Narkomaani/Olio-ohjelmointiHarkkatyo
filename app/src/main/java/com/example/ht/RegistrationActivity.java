@@ -29,6 +29,7 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registeration);
 
+        // variable set-up
         username = findViewById(R.id.usernameRegister);
         password = findViewById(R.id.passwordRegister);
         registerUserButton = findViewById(R.id.registerButton);
@@ -37,7 +38,7 @@ public class RegistrationActivity extends AppCompatActivity {
         email = findViewById(R.id.emailRegister);
 
 
-
+        // setting up register button
         registerUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,22 +50,22 @@ public class RegistrationActivity extends AppCompatActivity {
 
                 // check if any data is empty
                 if (username.getText().toString().isEmpty()) {
-                    Snackbar.make(view, "please enter an username", Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(view, getString(R.string.register_enter)+getString(R.string.username), Snackbar.LENGTH_LONG).show();
                 } else if (password.getText().toString().isEmpty()) {
-                    Snackbar.make(view, "please enter a password", Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(view, getString(R.string.register_enter)+getString(R.string.password), Snackbar.LENGTH_LONG).show();
                 } else if (firstname.getText().toString().isEmpty()) {
-                    Snackbar.make(view, "please enter a first name", Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(view, getString(R.string.register_enter)+getString(R.string.first_name), Snackbar.LENGTH_LONG).show();
                 } else if (lastname.getText().toString().isEmpty()) {
-                    Snackbar.make(view, "please enter a last name", Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(view, getString(R.string.register_enter)+getString(R.string.last_name), Snackbar.LENGTH_LONG).show();
                 } else if (email.getText().toString().isEmpty()) {
-                    Snackbar.make(view, "please enter a email", Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(view, getString(R.string.register_enter)+getString(R.string.email), Snackbar.LENGTH_LONG).show();
                 } else
 
                 // validate the format of username and password
                  if (LoginResult.isUserNameValid(iUsername) && LoginResult.isPasswordValid(iPassword)){
 
                      if(userDb.userDao().findByUsername(iUsername) != null) {
-                         Snackbar.make(view, "Username already taken", Snackbar.LENGTH_LONG).show();
+                         Snackbar.make(view, getString(R.string.register_username_taken), Snackbar.LENGTH_LONG).show();
                      } else {
                          // Making the new user
                          User newUser = (User) new User(iUsername, iPassword);
@@ -75,12 +76,11 @@ public class RegistrationActivity extends AppCompatActivity {
                          // adding it to database and current user slot
                          userManager.setCurrentUser(newUser);
                          userDb.userDao().insert(newUser);
-
-                         Snackbar.make(view, "Registration successful", Snackbar.LENGTH_LONG).show();
+                         Snackbar.make(view, getString(R.string.register_successful), Snackbar.LENGTH_LONG).show();
                          startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
                      }
                  } else {
-                     Snackbar.make(view, "please enter a valid username and password", Snackbar.LENGTH_LONG).show();
+                     Snackbar.make(view, getString(R.string.register_invalid), Snackbar.LENGTH_LONG).show();
                  }
 
             }

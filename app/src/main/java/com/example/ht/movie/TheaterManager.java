@@ -1,15 +1,5 @@
 package com.example.ht.movie;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.os.StrictMode;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-
-import com.example.ht.R;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -17,7 +7,6 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
-import java.math.BigInteger;
 import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -43,18 +32,14 @@ public class TheaterManager {
             DocumentBuilder dbuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             doc = dbuilder.parse(Url);
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (ParserConfigurationException e) {
+        } catch (IOException | ParserConfigurationException | SAXException e) {
             e.printStackTrace();
         } finally {
             System.out.println("##########done#########");
         }
 
-        doc.getDocumentElement().normalize();
 
+        doc.getDocumentElement().normalize();
         NodeList nList = doc.getDocumentElement().getElementsByTagName("TheatreArea");
         for(int i=0;i<nList.getLength();i++){
             Node node =nList.item(i);
