@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (itemid == R.id.nav_settings) {
                     fragment = new SettingsFragment();
                 } else if ( itemid == R.id.nav_manage_users) {
-                    // TODO manage user fragment
+                    fragment = new ManageUserFragment();
                 } else if (itemid == R.id.nav_log_out) {
                     startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 }

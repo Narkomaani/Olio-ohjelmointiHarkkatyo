@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">OnlyKino</string>
-    <string name="selected_language">suomi</string>
     <string name="language">englanti</string>
 
     <!--navigation menu strings-->
@@ -60,6 +59,14 @@
     <string name="register_successful">Rekisteröityminen onnistui!</string>
     <string name="register_username_taken">Käyttänimi on jo käytössä.</string>
     <string name="register_invalid">Syötä sopiva käyttäjänimi ja salasana</string>
+
+    <!-- Manage user Strings -->
+    <string name="manage_title">Näe sinun käyttäjätiedot</string>
+    <string name="manage_username">Käyttäjänimesi on:\n</string>
+    <string name="manage_password">Salasanasi on:\n</string>
+    <string name="manage_firstname">Etunimesi on:\n</string>
+    <string name="manage_lastname">Sukunimesi on:\n</string>
+    <string name="manage_email">Sähköpostisi on:\n</string>
 
     <!-- pre-generated strings -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
