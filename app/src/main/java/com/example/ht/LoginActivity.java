@@ -43,13 +43,14 @@ public class LoginActivity extends AppCompatActivity {
         rememberMe = findViewById(R.id.rememberMe);
 
         userManager = UserManager.getUserManager();
-
+        sharedPreferences = getSharedPreferences("userDB", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
         // if checkbox was checked, import credentials
         if (sharedPreferences != null) {
                 if (sharedPreferences.getBoolean("remember_me_checkbox", false)) {
-                    username.setText("");
-                    password.setText("");
+                    username.setText(userManager.getCurrentUser().getUsername());
+                    password.setText(userManager.getCurrentUser().getPassword());
                     rememberMe.setChecked(true);
                 }
         }

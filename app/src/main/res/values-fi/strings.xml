@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OnlyKino</string>
+
+    <!--navigation menu strings-->
+    <string name="nav_open">Avaa</string>
+    <string name="nav_close">Sulje</string>
+
+    <string name="nav_home_page">Kotisivu</string>
+    <string name="nav_fav_movies">Lempi elokuvani</string>
+    <string name="nav_calendar">Kalenteri</string>
+    <string name="nav_settings">Asetukset</string>
+    <string name="nav_manage">Hallitse käyttäjää</string>
+    <string name="nav_log_out">Kirjaudu ulos</string>
+
+    <!-- Home Page Strings -->
+    <string name="theaters">Finnkino Teatterit:</string>
+    <string name="search">Etsi</string>
+
+    <!-- Settings Strings -->
+    <string name="settings">Asetukset</string>
+    <string-array name="languages_array">
+        <item>Englanti</item>
+        <item>Suomi</item>
+    </string-array>
+    <string name="darkmode">Ota tumma tila käyttöön</string>
+
+    <string name="title_activity_settings">AsetuksetAktiviteetti</string>
+
+    <!-- Login Strings -->
+    <string name="prompt_username">Syötä sinun käyttäjänimi</string>
+    <string name="prompt_password">Syötä sinun salasana</string>
+    <string name="sign_in">Kirjaudu sisään</string>
+    <string name="register">Rekisteröidä</string>
+    <string name="welcome">"Tervetuloa!"</string>
+    <string name="invalid_username">Syötä sopiva käyttäjänimi</string>
+    <string name="invalid_password">Syötä sopiva salasana</string>
+    <string name="login_failed">Kirjautuminen epäonnistui</string>
+    <string name="login_remember">Muista minut</string>
+
+    <!-- register Strings -->
+    <string name="register_username">Syötä uusi käyttäjänimi</string>
+    <string name="register_password">Syötä uusi salasana</string>
+    <string name="register_firstname">Syötä sinun etunimesi</string>
+    <string name="register_lastname">Syötä sinun sukunimesi</string>
+    <string name="register_email">Syötä sinun sähköposti</string>
+    <string name="register_title">Rekisteröinti sivu</string>
+    <string name="register_password_requirements">Salasanan vähimmäisvaatimusket:\n- Vähintään 12 merkki\n- Pitää olla vähintään yksi pieni ja iso kirjain</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Viestit</string>
+    <string name="sync_header">Synkronoi</string>
+
+    <!-- pre-generated strings -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="back"><![CDATA[<-]]></string>
+    <string name="forward"><![CDATA[->]]></string>
+    <string name="search_specific_movie">Etsi tietty elokuva</string>
+</resources>

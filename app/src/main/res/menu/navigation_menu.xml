@@ -6,24 +6,30 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home_page"
+            android:icon="@drawable/ic_home_"
             android:title="@string/nav_home_page" />
         <item
             android:id="@+id/nav_search_movie_imdb"
+            android:icon="@drawable/ic_search"
             android:title="@string/search_specific_movie" />
         <item
             android:id="@+id/nav_fav_movies"
+            android:icon="@drawable/ic_favorite"
             android:title="@string/nav_fav_movies" />
         <item
             android:id="@+id/nav_calendar"
+            android:icon="@drawable/ic_calendar"
             android:title="@string/nav_calendar" />
         <item
             android:id="@+id/nav_settings"
             android:icon="@android:drawable/ic_menu_preferences"
             android:title="@string/nav_settings" />
         <item
+            android:icon="@drawable/ic_user"
             android:id="@+id/nav_manage_users"
             android:title="@string/nav_manage" />
         <item
+            android:icon="@drawable/ic_logout"
             android:id="@+id/nav_log_out"
             android:title="@string/nav_log_out" />
     </group>
