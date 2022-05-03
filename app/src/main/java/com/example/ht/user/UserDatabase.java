@@ -1,4 +1,4 @@
-package com.example.ht.User;
+package com.example.ht.user;
 
 import android.content.Context;
 
@@ -14,7 +14,7 @@ public abstract class UserDatabase extends RoomDatabase {
 
     // singleton instance
     private static UserDatabase userDatabase;
-    private static  String DATABASE_NAME = "user_database";
+    private static final String DATABASE_NAME = "user_database";
     // DAO inside the database
     public abstract UserDao userDao();
 

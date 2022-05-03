@@ -14,8 +14,6 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.ht.movie.TheaterManager;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -33,7 +31,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 public class HomePageFragment extends Fragment {
-    private TheaterManager tm;
     ArrayList<String> theaters = new ArrayList<>();
     ArrayList<String> theaterIds = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
@@ -152,11 +149,7 @@ public class HomePageFragment extends Fragment {
                     theaterIds.add(element.getElementsByTagName("ID").item(0).getTextContent());
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (ParserConfigurationException e) {
+        } catch (IOException | ParserConfigurationException | SAXException e) {
             e.printStackTrace();
         } finally {
             System.out.println("Done");
@@ -184,11 +177,7 @@ public class HomePageFragment extends Fragment {
                     eventIds.add(element.getElementsByTagName("ID").item(0).getTextContent());
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (ParserConfigurationException e) {
+        } catch (IOException | ParserConfigurationException | SAXException e) {
             e.printStackTrace();
         } finally {
             System.out.println("Done");
@@ -219,17 +208,13 @@ public class HomePageFragment extends Fragment {
                         shows.add("\nTitle: " + element.getElementsByTagName("Title").item(0).getTextContent() + "\nTime and date: " + element.getElementsByTagName("dttmShowStart").item(0).getTextContent() + "\n Theatre: " + element.getElementsByTagName("Theatre").item(0).getTextContent() + "\n");
                     }
                 }
-            } catch (ParserConfigurationException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (SAXException e) {
+            } catch (ParserConfigurationException | SAXException | IOException e) {
                 e.printStackTrace();
             } finally {
                 System.out.println("Done");
             }
             // if user chooses both theater and specific movie they want to see
-        } else if (theaterID != 0 && eventTitle.isEmpty() == false) {
+        } else if (theaterID != 0 && !eventTitle.isEmpty()) {
             try {
                 String pattern = "dd.MM.yyyy";
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
@@ -252,11 +237,7 @@ public class HomePageFragment extends Fragment {
                         }
                     }
                 }
-            } catch (ParserConfigurationException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (SAXException e) {
+            } catch (ParserConfigurationException | SAXException | IOException e) {
                 e.printStackTrace();
             } finally {
                 System.out.println("Done");

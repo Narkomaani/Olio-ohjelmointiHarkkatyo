@@ -1,10 +1,9 @@
-package com.example.ht.Calendar;
+package com.example.ht.calendar;
 
-import static com.example.ht.Calendar.CalendarUtils.daysInMonthArray;
-import static com.example.ht.Calendar.CalendarUtils.monthYearFromDate;
+import static com.example.ht.calendar.CalendarUtils.daysInMonthArray;
+import static com.example.ht.calendar.CalendarUtils.monthYearFromDate;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,16 +24,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.ht.HomePageFragment;
 import com.example.ht.LoginActivity;
 import com.example.ht.MainActivity;
 import com.example.ht.R;
-import com.example.ht.SearchFavouriteMovieFragment;
-import com.example.ht.SearchMovieIMDBFragment;
-import com.example.ht.SettingsFragment;
-import com.example.ht.User.UserManager;
+import com.example.ht.user.UserManager;
 import com.google.android.material.navigation.NavigationView;
 
 import java.time.LocalDate;
@@ -95,9 +89,6 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
         PreferenceManager.setDefaultValues(this, R.xml.preferences,false);
 
         // make starting fragment HomePageFragment
-        /*manager.beginTransaction()
-                .replace(R.id.fragment_window, new HomePageFragment())
-                .commit();*/
 
         navigation_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -124,7 +115,9 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
                     startActivity(intentSend);
                     finish();
                 } else if ( itemid == R.id.nav_manage_users) {
-                    // TODO manage user fragment
+                    intentSend.putExtra("keyCA", "manageUser");
+                    startActivity(intentSend);
+                    finish();
                 } else if (itemid == R.id.nav_log_out) {
                     userManager.setCurrentUser(null);
                     startActivity(new Intent(CalendarActivity.this, LoginActivity.class));

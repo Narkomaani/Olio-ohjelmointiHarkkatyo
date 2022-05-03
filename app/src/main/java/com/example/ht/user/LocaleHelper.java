@@ -1,4 +1,4 @@
-package com.example.ht.User;
+package com.example.ht.user;
 
 import android.annotation.TargetApi;
 import android.content.Context;

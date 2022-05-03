@@ -1,4 +1,4 @@
-package com.example.ht.Calendar;
+package com.example.ht.calendar;
 
 import android.graphics.Color;
 import android.os.Build;

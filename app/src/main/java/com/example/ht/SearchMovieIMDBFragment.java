@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -45,10 +44,10 @@ public class SearchMovieIMDBFragment extends Fragment {
 
                 //quickly done switch that if either one is empty it will choose the full one, or if both have some text it
                 //it will choose the title first.
-                if (movieTitle.getText().toString().isEmpty() == false) {
+                if (!movieTitle.getText().toString().isEmpty()) {
                     String givenText = movieTitle.getText().toString();
                     imdbMoviesArray = SearchMovieIMDB.readMovieJson(givenText);
-                } else if (personName.getText().toString().isEmpty() == false) {
+                } else if (!personName.getText().toString().isEmpty()) {
                     String givenText =personName.getText().toString();
                     imdbMoviesArray = SearchMovieIMDB.readPersonMoviesJson(givenText);
                 }

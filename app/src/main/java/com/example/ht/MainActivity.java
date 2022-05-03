@@ -1,14 +1,10 @@
 package com.example.ht;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -24,14 +20,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.preference.PreferenceManager;
 
-import com.example.ht.Calendar.CalendarActivity;
-import com.example.ht.User.LocaleHelper;
-import com.example.ht.User.User;
-import com.example.ht.User.UserManager;
+import com.example.ht.calendar.CalendarActivity;
+import com.example.ht.user.LocaleHelper;
+import com.example.ht.user.User;
+import com.example.ht.user.UserManager;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
-
-import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -171,16 +165,25 @@ public class MainActivity extends AppCompatActivity {
     // open fragments or an activity for calendar
     private void openFragment(String fragmentToOpen) {
         System.out.println(fragmentToOpen);
-        if (fragmentToOpen.equals("homePage")) {
-            fragment = new HomePageFragment();
-        } else if (fragmentToOpen.equals("searchMovie")) {
-            fragment = new SearchMovieIMDBFragment();
-        } else if (fragmentToOpen.equals("favoriteMovie")) {
-            fragment = new SearchFavouriteMovieFragment();
-        } else if (fragmentToOpen.equals("calendar")) {
-            openCalendarActivity();
-        } else if (fragmentToOpen.equals("settings")) {
-            fragment = new SettingsFragment();
+        switch (fragmentToOpen) {
+            case "homePage":
+                fragment = new HomePageFragment();
+                break;
+            case "searchMovie":
+                fragment = new SearchMovieIMDBFragment();
+                break;
+            case "favoriteMovie":
+                fragment = new SearchFavouriteMovieFragment();
+                break;
+            case "calendar":
+                openCalendarActivity();
+                break;
+            case "settings":
+                fragment = new SettingsFragment();
+                break;
+            case "manageUser":
+                fragment = new ManageUserFragment();
+                break;
         }
 
         if (fragment != null) {

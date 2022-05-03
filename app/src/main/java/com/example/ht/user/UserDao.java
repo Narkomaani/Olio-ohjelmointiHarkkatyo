@@ -1,4 +1,4 @@
-package com.example.ht.User;
+package com.example.ht.user;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -6,7 +6,6 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import static androidx.room.Insert.*;
 import java.util.List;
 
 /**

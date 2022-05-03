@@ -9,21 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.ht.User.User;
-import com.example.ht.User.UserManager;
+import com.example.ht.user.User;
+import com.example.ht.user.UserManager;
 
 /**
  * A fragment in which the user can see their personal data
  */
 public class ManageUserFragment extends Fragment {
 
-    private UserManager userManager;
     private User user;
-    private TextView manage_username;
-    private TextView manage_password;
-    private TextView manage_firstname;
-    private TextView manage_lastmame;
-    private TextView manage_email;
 
 
     public ManageUserFragment() {
@@ -33,7 +27,7 @@ public class ManageUserFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        userManager = UserManager.getUserManager();
+        UserManager userManager = UserManager.getUserManager();
         user = userManager.getCurrentUser();
     }
 
@@ -48,11 +42,11 @@ public class ManageUserFragment extends Fragment {
         displays all user data onto the screen
         in reality NEVER DO THIS WITH A PASSWORD, more specifically UNENCRYPTED PASSWORD
          */
-        manage_username = view.findViewById(R.id.manage_username);
-        manage_password = view.findViewById(R.id.manage_password);
-        manage_firstname = view.findViewById(R.id.manage_firstname);
-        manage_lastmame = view.findViewById(R.id.manage_lastname);
-        manage_email = view.findViewById(R.id.manage_email);
+        TextView manage_username = view.findViewById(R.id.manage_username);
+        TextView manage_password = view.findViewById(R.id.manage_password);
+        TextView manage_firstname = view.findViewById(R.id.manage_firstname);
+        TextView manage_lastmame = view.findViewById(R.id.manage_lastname);
+        TextView manage_email = view.findViewById(R.id.manage_email);
 
         manage_username.setText(getString(R.string.manage_username) + user.getUsername());
         manage_password.setText(getString(R.string.manage_password) + user.getPassword());

@@ -10,7 +10,7 @@
         <item name="colorSecondaryVariant">@color/DimGray</item>
         <item name="colorOnSecondary">@color/Gold</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorSecondary</item>
         <!-- Customize your theme here. -->
     </style>
 

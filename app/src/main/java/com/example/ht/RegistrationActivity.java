@@ -8,10 +8,10 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.ht.User.LoginResult;
-import com.example.ht.User.User;
-import com.example.ht.User.UserDatabase;
-import com.example.ht.User.UserManager;
+import com.example.ht.user.LoginResult;
+import com.example.ht.user.User;
+import com.example.ht.user.UserDatabase;
+import com.example.ht.user.UserManager;
 import com.google.android.material.snackbar.Snackbar;
 
 public class RegistrationActivity extends AppCompatActivity {
@@ -21,7 +21,6 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText firstname;
     private EditText lastname;
     private EditText email;
-    private Button registerUserButton;
 
 
     @Override
@@ -32,7 +31,7 @@ public class RegistrationActivity extends AppCompatActivity {
         // variable set-up
         username = findViewById(R.id.usernameRegister);
         password = findViewById(R.id.passwordRegister);
-        registerUserButton = findViewById(R.id.registerButton);
+        Button registerUserButton = findViewById(R.id.registerButton);
         firstname = findViewById(R.id.firstnameRegister);
         lastname = findViewById(R.id.lastnameRegister);
         email = findViewById(R.id.emailRegister);

@@ -11,7 +11,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -19,7 +18,7 @@ public class SearchMovieIMDB {
     //The job of this class is to take the given movie title/persons name string from SearchMovieIMDBFragment, and show every movie
     //and details of a clicked movie
 
-    private static String API_key = "k_w4cf6g39/"; //Needs to have / at the end as it will be easier to deal with given end id to the urls.
+    private static final String API_key = "k_w4cf6g39/"; //Needs to have / at the end as it will be easier to deal with given end id to the urls.
 
     public static ArrayList<String> readMovieJson(String urlid) {
         //This class' objective is to bring out the specific movie id out
@@ -129,17 +128,13 @@ public class SearchMovieIMDB {
             InputStream in = new BufferedInputStream(conn.getInputStream());
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
             StringBuilder sb = new StringBuilder();
-            String line = null;
+            String line;
             while((line = br.readLine()) != null) {
                 sb.append(line).append("\n");
             }
             response = sb.toString();
             in.close();
 
-        } catch (ProtocolException e) {
-            e.printStackTrace();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

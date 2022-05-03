@@ -1,11 +1,4 @@
-package com.example.ht.User;
-
-import androidx.recyclerview.widget.LinearLayoutManager;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+package com.example.ht.user;
 
 /***
  * The Class tha manages users and its data

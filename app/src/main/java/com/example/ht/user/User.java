@@ -1,4 +1,4 @@
-package com.example.ht.User;
+package com.example.ht.user;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;

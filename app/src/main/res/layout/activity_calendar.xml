@@ -37,8 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="55dp"
-        android:orientation="vertical"
-        android:id="@+id/fragment_calendar">
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/weeklyButton"

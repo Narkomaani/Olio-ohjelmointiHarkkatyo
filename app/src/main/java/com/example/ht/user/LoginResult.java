@@ -1,4 +1,4 @@
-package com.example.ht.User;
+package com.example.ht.user;
 
 import android.content.Context;
 import android.util.Patterns;
@@ -9,7 +9,7 @@ import android.util.Patterns;
  */
 public abstract class LoginResult {
 
-    private static UserManager userManager = UserManager.getUserManager();
+    private static final UserManager userManager = UserManager.getUserManager();
 
 
     // A username validation check

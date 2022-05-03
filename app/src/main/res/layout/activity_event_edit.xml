@@ -38,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".Calendar.EventEditActivity">
+        tools:context=".calendar.EventEditActivity">
 
         <TextView
             android:layout_width="wrap_content"
@@ -79,7 +79,6 @@
             android:textAlignment="center"/>
 
         <Button
-            android:id="@+id/saveButton"
             android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

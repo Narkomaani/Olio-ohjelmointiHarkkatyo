@@ -1,4 +1,4 @@
-package com.example.ht.Calendar;
+package com.example.ht.calendar;
 
 import android.os.Build;
 import android.view.View;

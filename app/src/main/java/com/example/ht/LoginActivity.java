@@ -1,7 +1,6 @@
 package com.example.ht;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.preference.PreferenceManager;
 
 import android.content.Intent;
@@ -13,25 +12,18 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import com.example.ht.User.LocaleHelper;
-import com.example.ht.User.LoginResult;
-import com.example.ht.User.User;
-import com.example.ht.User.UserDao;
-import com.example.ht.User.UserDatabase;
-import com.example.ht.User.UserManager;
+import com.example.ht.user.LoginResult;
+import com.example.ht.user.User;
+import com.example.ht.user.UserManager;
 import com.google.android.material.snackbar.Snackbar;
 
 public class LoginActivity extends AppCompatActivity {
 
     private EditText username;
     private EditText password;
-    private Button loginButton;
-    private Button registerButton;
     private CheckBox rememberMe;
 
-    private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
-    private UserManager userManager;
 
 
     @Override
@@ -42,12 +34,12 @@ public class LoginActivity extends AppCompatActivity {
         // variable set-up
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
-        loginButton = findViewById(R.id.loginButton);
-        registerButton = findViewById(R.id.gotoRegisterButton);
+        Button loginButton = findViewById(R.id.loginButton);
+        Button registerButton = findViewById(R.id.gotoRegisterButton);
         rememberMe = findViewById(R.id.rememberMe);
 
-        userManager = UserManager.getUserManager();
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        UserManager userManager = UserManager.getUserManager();
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = sharedPreferences.edit();
 
 

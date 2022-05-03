@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">OnlyKino</string>
-    <string name="language">englanti</string>
 
     <!--navigation menu strings-->
     <string name="nav_open">Avaa</string>
@@ -17,7 +16,6 @@
     <!-- Home Page Strings -->
     <string name="theaters">Finnkino Teatterit:</string>
     <string name="search">Etsi</string>
-    <string name="hello">Hei </string>
     <string name="username">Käyttäjänimi</string>
     <string name="password">Salasana</string>
     <string name="first_name">Etunimi</string>
@@ -31,7 +29,6 @@
         <item>Suomi</item>
     </string-array>
     <string name="darkmode">Ota tumma tila käyttöön</string>
-    <string name="title_activity_settings">AsetuksetAktiviteetti</string>
     <string name="title_language">Kieli</string>
 
     <!-- Login Strings -->
@@ -40,9 +37,6 @@
     <string name="sign_in">Kirjaudu sisään</string>
     <string name="register">Rekisteröidä</string>
     <string name="welcome">"Tervetuloa "</string>
-    <string name="invalid_username">Syötä sopiva käyttäjänimi</string>
-    <string name="invalid_password">Syötä sopiva salasana</string>
-    <string name="login_failed">Kirjautuminen epäonnistui</string>
     <string name="login_remember">Muista minut</string>
     <string name="login_empty">Syötä käyttäjänimi ja salasana.</string>
     <string name="login_invalid">Virheelliset kirjautumistiedot.</string>
@@ -69,7 +63,6 @@
     <string name="manage_email">Sähköpostisi on:\n</string>
 
     <!-- pre-generated strings -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="back"><![CDATA[<-]]></string>
     <string name="forward"><![CDATA[->]]></string>
     <string name="search_specific_movie">Etsi tietty elokuva</string>

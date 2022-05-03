@@ -12,13 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HT.NoActionBar">
         <activity
-            android:name=".Calendar.EventEditActivity"
+            android:name=".calendar.EventEditActivity"
             android:exported="false" />
         <activity
-            android:name=".Calendar.WeekViewActivity"
+            android:name=".calendar.WeekViewActivity"
             android:exported="false" />
         <activity
-            android:name=".Calendar.CalendarActivity"
+            android:name=".calendar.CalendarActivity"
             android:exported="false" />
         <activity
             android:name=".RegistrationActivity"
