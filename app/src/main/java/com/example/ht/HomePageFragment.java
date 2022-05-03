@@ -14,8 +14,6 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.ht.movie.TheaterManager;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -33,7 +31,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 public class HomePageFragment extends Fragment {
-    private TheaterManager tm;
     ArrayList<String> theaters = new ArrayList<>();
     ArrayList<String> theaterIds = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
