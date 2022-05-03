@@ -11,33 +11,41 @@
     <string name="nav_fav_movies">Lempielokuvani</string>
     <string name="nav_calendar">Kalenteri</string>
     <string name="nav_settings">Asetukset</string>
-    <string name="nav_manage">Hallitse käyttäjiä</string>
+    <string name="nav_manage">Hallitse käyttäjää</string>
     <string name="nav_log_out">Kirjaudu ulos</string>
 
     <!-- Home Page Strings -->
     <string name="theaters">Finnkino Teatterit:</string>
     <string name="search">Etsi</string>
+    <string name="hello">Hei </string>
+    <string name="username">Käyttäjänimi</string>
+    <string name="password">Salasana</string>
+    <string name="first_name">Etunimi</string>
+    <string name="last_name">Sukunimi</string>
+    <string name="email">Sähköposti</string>
 
     <!-- Settings Strings -->
     <string name="settings">Asetukset</string>
     <string-array name="languages_array">
-        <item>Suomi</item>
         <item>Englanti</item>
+        <item>Suomi</item>
     </string-array>
     <string name="darkmode">Ota tumma tila käyttöön</string>
-
     <string name="title_activity_settings">AsetuksetAktiviteetti</string>
+    <string name="title_language">Kieli</string>
 
     <!-- Login Strings -->
     <string name="prompt_username">Syötä käyttäjänimesi</string>
     <string name="prompt_password">Syötä salasanasi</string>
     <string name="sign_in">Kirjaudu sisään</string>
-    <string name="register">Rekisteröidy</string>
-    <string name="welcome">"Tervetuloa!"</string>
-    <string name="invalid_username">Syötä käyttäjänimi</string>
-    <string name="invalid_password">Syötä salasana</string>
+    <string name="register">Rekisteröidä</string>
+    <string name="welcome">"Tervetuloa "</string>
+    <string name="invalid_username">Syötä sopiva käyttäjänimi</string>
+    <string name="invalid_password">Syötä sopiva salasana</string>
     <string name="login_failed">Kirjautuminen epäonnistui</string>
     <string name="login_remember">Muista minut</string>
+    <string name="login_empty">Syötä käyttäjänimi ja salasana.</string>
+    <string name="login_invalid">Virheelliset kirjautumistiedot.</string>
 
     <!-- register Strings -->
     <string name="register_username">Syötä uusi käyttäjänimi</string>
@@ -47,10 +55,10 @@
     <string name="register_email">Syötä sähköpostisi</string>
     <string name="register_title">Rekisteröintisivu</string>
     <string name="register_password_requirements">Salasanan vähimmäisvaatimusket:\n- Vähintään 12 merkki\n- Pitää olla vähintään yksi pieni ja iso kirjain</string>
-
-    <!-- Preference Titles -->
-    <string name="messages_header">Viestit</string>
-    <string name="sync_header">Synkronoi</string>
+    <string name="register_enter">Syötä </string>
+    <string name="register_successful">Rekisteröityminen onnistui!</string>
+    <string name="register_username_taken">Käyttänimi on jo käytössä.</string>
+    <string name="register_invalid">Syötä sopiva käyttäjänimi ja salasana</string>
 
     <!-- pre-generated strings -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

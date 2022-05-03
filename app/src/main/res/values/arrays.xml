@@ -2,8 +2,8 @@
 <resources>
 
     <string-array name="languages_values">
-        <item>eng</item>
-        <item>fin</item>
+        <item>en</item>
+        <item>fi</item>
     </string-array>
 
 

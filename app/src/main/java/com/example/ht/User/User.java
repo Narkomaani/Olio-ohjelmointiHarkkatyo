@@ -30,7 +30,6 @@ public class User {
 
 
     public User() {
-
     }
 
     public User(String username, String password) {
@@ -40,10 +39,6 @@ public class User {
 
     public int getUid() {
         return uid;
-    }
-
-    public void setUid(int uid) {
-        this.uid = uid;
     }
 
     public String getUsername() {
