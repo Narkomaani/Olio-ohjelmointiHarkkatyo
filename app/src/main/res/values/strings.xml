@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">OnlyKino</string>
 
@@ -19,8 +20,8 @@
     <!-- Settings Strings -->
     <string name="settings">Settings</string>
     <string-array name="languages_array">
-        <item>English</item>
         <item>Finnish</item>
+        <item>English</item>
     </string-array>
     <string name="darkmode">Enable Dark mode</string>
 
@@ -44,7 +45,7 @@
     <string name="register_lastname">Enter your last name</string>
     <string name="register_email">Enter your email address</string>
     <string name="register_title">Registration page</string>
-    <string name="register_password_requirements">The Password minimun requirements:\n- Must be atleast 12 characters\n- Must have lower and uppercase Characters</string>
+    <string name="register_password_requirements">The Password minimum requirements:\n- Must be atleast 12 characters\n- Must have lower and uppercase Characters</string>
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
@@ -55,4 +56,5 @@
     <string name="back"><![CDATA[<-]]></string>
     <string name="forward"><![CDATA[->]]></string>
     <string name="search_specific_movie">Search Specific Movie</string>
+    <string name="language">English</string>
 </resources>

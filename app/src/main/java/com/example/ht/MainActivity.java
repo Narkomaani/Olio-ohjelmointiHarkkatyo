@@ -43,8 +43,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         // variable set-up
         navigation_view = findViewById(R.id.navigation_view);
         drawerLayout = findViewById(R.id.my_drawer_layout);
@@ -77,6 +75,13 @@ public class MainActivity extends AppCompatActivity {
                 .replace(R.id.fragment_window, new HomePageFragment())
                 .commit();
 
+        Intent intentReceive = getIntent();
+        String fragmentToOpen = intentReceive.getStringExtra("keyCA");
+        System.out.println(fragmentToOpen + "MA");
+        if (fragmentToOpen != null) {
+            openFragment(fragmentToOpen);
+        }
+
         navigation_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -91,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
                 } else if (itemid == R.id.nav_fav_movies) {
                     fragment = new SearchFavouriteMovieFragment();
                 } else if (itemid == R.id.nav_calendar) {
-                    //fragment = new CalendarFragment();
                     openCalendarActivity();
                 } else if (itemid == R.id.nav_settings) {
                     fragment = new SettingsFragment();
@@ -118,6 +122,29 @@ public class MainActivity extends AppCompatActivity {
     private void openCalendarActivity() {
         Intent intent = new Intent(this, CalendarActivity.class);
         startActivity(intent);
+    }
+
+    private void openFragment(String fragmentToOpen) {
+        System.out.println(fragmentToOpen);
+        if (fragmentToOpen == "homePage") {
+            fragment = new HomePageFragment();
+        } else if (fragmentToOpen == "searchMovie") {
+            fragment = new SearchMovieIMDBFragment();
+        } else if (fragmentToOpen == "favoriteMovie") {
+            fragment = new SearchFavouriteMovieFragment();
+        } else if (fragmentToOpen == "calendar") {
+            openCalendarActivity();
+        } else if (fragmentToOpen == "settings") {
+            fragment = new SettingsFragment();
+        }
+
+        if (fragment != null) {
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.replace(R.id.fragment_window, fragment);
+            transaction.commit();
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+
     }
 
     // override the onOptionsItemSelected()
