@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">OnlyKino</string>
+    <string name="language">suomi</string>
 
     <!--navigation menu strings-->
     <string name="nav_open">Avaa</string>
     <string name="nav_close">Sulje</string>
 
     <string name="nav_home_page">Kotisivu</string>
-    <string name="nav_fav_movies">Lempi elokuvani</string>
+    <string name="nav_fav_movies">Lempielokuvani</string>
     <string name="nav_calendar">Kalenteri</string>
     <string name="nav_settings">Asetukset</string>
-    <string name="nav_manage">Hallitse käyttäjää</string>
+    <string name="nav_manage">Hallitse käyttäjiä</string>
     <string name="nav_log_out">Kirjaudu ulos</string>
 
     <!-- Home Page Strings -->
@@ -20,31 +21,31 @@
     <!-- Settings Strings -->
     <string name="settings">Asetukset</string>
     <string-array name="languages_array">
-        <item>Englanti</item>
         <item>Suomi</item>
+        <item>Englanti</item>
     </string-array>
     <string name="darkmode">Ota tumma tila käyttöön</string>
 
     <string name="title_activity_settings">AsetuksetAktiviteetti</string>
 
     <!-- Login Strings -->
-    <string name="prompt_username">Syötä sinun käyttäjänimi</string>
-    <string name="prompt_password">Syötä sinun salasana</string>
+    <string name="prompt_username">Syötä käyttäjänimesi</string>
+    <string name="prompt_password">Syötä salasanasi</string>
     <string name="sign_in">Kirjaudu sisään</string>
-    <string name="register">Rekisteröidä</string>
+    <string name="register">Rekisteröidy</string>
     <string name="welcome">"Tervetuloa!"</string>
-    <string name="invalid_username">Syötä sopiva käyttäjänimi</string>
-    <string name="invalid_password">Syötä sopiva salasana</string>
+    <string name="invalid_username">Syötä käyttäjänimi</string>
+    <string name="invalid_password">Syötä salasana</string>
     <string name="login_failed">Kirjautuminen epäonnistui</string>
     <string name="login_remember">Muista minut</string>
 
     <!-- register Strings -->
     <string name="register_username">Syötä uusi käyttäjänimi</string>
     <string name="register_password">Syötä uusi salasana</string>
-    <string name="register_firstname">Syötä sinun etunimesi</string>
-    <string name="register_lastname">Syötä sinun sukunimesi</string>
-    <string name="register_email">Syötä sinun sähköposti</string>
-    <string name="register_title">Rekisteröinti sivu</string>
+    <string name="register_firstname">Syötä etunimesi</string>
+    <string name="register_lastname">Syötä sukunimesi</string>
+    <string name="register_email">Syötä sähköpostisi</string>
+    <string name="register_title">Rekisteröintisivu</string>
     <string name="register_password_requirements">Salasanan vähimmäisvaatimusket:\n- Vähintään 12 merkki\n- Pitää olla vähintään yksi pieni ja iso kirjain</string>
 
     <!-- Preference Titles -->
