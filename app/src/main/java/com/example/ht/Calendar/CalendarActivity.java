@@ -84,9 +84,9 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
         PreferenceManager.setDefaultValues(this, R.xml.preferences,false);
 
         // make starting fragment HomePageFragment
-        manager.beginTransaction()
+        /*manager.beginTransaction()
                 .replace(R.id.fragment_window, new HomePageFragment())
-                .commit();
+                .commit();*/
 
         navigation_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -97,12 +97,16 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
                 // loop to select the fragment
                 if ((itemid == R.id.nav_home_page) ) {
                     fragment = new HomePageFragment();
+                    openFragment();
                 } else if (itemid == R.id.nav_search_movie_imdb) {
                     fragment = new SearchMovieIMDBFragment();
+                    openFragment();
                 } else if (itemid == R.id.nav_fav_movies) {
                     fragment = new SearchFavouriteMovieFragment();
+                    openFragment();
                 } else if (itemid == R.id.nav_settings) {
                     fragment = new SettingsFragment();
+                    openFragment();
                 } else if ( itemid == R.id.nav_manage_users) {
                     // TODO manage user fragment
                 } else if (itemid == R.id.nav_log_out) {
@@ -152,6 +156,12 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
             }
         });
 
+    }
+
+    private void openFragment() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void weeklyAction() {
