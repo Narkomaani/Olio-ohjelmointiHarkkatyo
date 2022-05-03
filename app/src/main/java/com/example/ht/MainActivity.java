@@ -1,11 +1,22 @@
 package com.example.ht;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.StrictMode;
+import android.util.DisplayMetrics;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -13,16 +24,14 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.preference.PreferenceManager;
 
-import android.os.StrictMode;
-import android.view.MenuItem;
-import android.view.View;
-
 import com.example.ht.Calendar.CalendarActivity;
-import com.example.ht.Calendar.CalendarFragment;
+import com.example.ht.User.LocaleHelper;
 import com.example.ht.User.User;
 import com.example.ht.User.UserManager;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+
+import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -34,9 +43,18 @@ public class MainActivity extends AppCompatActivity {
     public NavigationView navigation_view;
     public FragmentManager manager;
     public View view;
+    public TextView header_text;
+    public Context context;
 
     public UserManager userManager;
-    private User user;
+    public User user;
+    public SharedPreferences sharedPreferences;
+    public SharedPreferences.Editor editor;
+
+    public static final String preference_name = "userPreferences";
+    public static final String preference_language = "language";
+    public static final String preference_darkMode = "dark_mode";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,14 +68,17 @@ public class MainActivity extends AppCompatActivity {
         manager = getSupportFragmentManager();
         userManager = UserManager.getUserManager();
         user = userManager.getCurrentUser();
-
+        header_text = findViewById(R.id.headerText); // jostain syystä null
+        context = this;
+        fragment = new HomePageFragment();
 
         // giving permission to use the internet
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        // Greet the user
-        Snackbar.make(drawerLayout, "Welcome " + user.getFirstName() + "!", Snackbar.LENGTH_LONG).show();
+        // Setting up user information
+        // header_text.setText(R.string.hello + user.getFirstName() + "!\n"); // EI TOIMI KOSKA HEADER_TEXT ON NULL
+        Snackbar.make(drawerLayout, getString(R.string.welcome) + user.getFirstName() + "!", Snackbar.LENGTH_LONG).show();
 
         // setting up toolbar's navigation menu toggle
         setSupportActionBar(toolbar);
@@ -67,13 +88,35 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
-        // set default settings
-        PreferenceManager.setDefaultValues(this, R.xml.preferences,false);
+        // setting up settings
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = sharedPreferences.edit();
+        sharedPreferences.registerOnSharedPreferenceChangeListener(new SharedPreferences.OnSharedPreferenceChangeListener() {
+            @Override
+            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+                if (key.equals(preference_language)) {
+                    LocaleHelper.setLocale(MainActivity.this, sharedPreferences.getString(preference_language, "en"));
+                    System.out.println("language selected: " + sharedPreferences.getString(preference_language, "en"));
+                    editor.putString(preference_language, sharedPreferences.getString(preference_language, "en"));
+                } else if (key.equals(preference_darkMode)) {
+                    if (sharedPreferences.getBoolean(preference_darkMode, false)) {
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                        editor.putBoolean(preference_darkMode, true);
+                    } else {
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                        editor.putBoolean(preference_darkMode, false);
+                    }
+                }
+                editor.apply();
+            }
+        });
 
         // make starting fragment HomePageFragment
-        manager.beginTransaction()
-                .replace(R.id.fragment_window, new HomePageFragment())
-                .commit();
+        if (getSupportFragmentManager().findFragmentById(R.id.fragment_window) == null ) {
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.replace(R.id.fragment_window, new HomePageFragment());
+            transaction.commit();
+        }
 
         Intent intentReceive = getIntent();
         String fragmentToOpen = intentReceive.getStringExtra("keyCA");
@@ -82,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
             openFragment(fragmentToOpen);
         }
 
+        // navigation bar selection listener
         navigation_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -102,7 +146,6 @@ public class MainActivity extends AppCompatActivity {
                 } else if ( itemid == R.id.nav_manage_users) {
                     // TODO manage user fragment
                 } else if (itemid == R.id.nav_log_out) {
-                    userManager.setCurrentUser(null);
                     startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 }
 
@@ -126,15 +169,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void openFragment(String fragmentToOpen) {
         System.out.println(fragmentToOpen);
-        if (fragmentToOpen == "homePage") {
+        if (fragmentToOpen.equals("homePage")) {
             fragment = new HomePageFragment();
-        } else if (fragmentToOpen == "searchMovie") {
+        } else if (fragmentToOpen.equals("searchMovie")) {
             fragment = new SearchMovieIMDBFragment();
-        } else if (fragmentToOpen == "favoriteMovie") {
+        } else if (fragmentToOpen.equals("favoriteMovie")) {
             fragment = new SearchFavouriteMovieFragment();
-        } else if (fragmentToOpen == "calendar") {
+        } else if (fragmentToOpen.equals("calendar")) {
             openCalendarActivity();
-        } else if (fragmentToOpen == "settings") {
+        } else if (fragmentToOpen.equals("settings")) {
             fragment = new SettingsFragment();
         }
 
@@ -160,4 +203,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }
