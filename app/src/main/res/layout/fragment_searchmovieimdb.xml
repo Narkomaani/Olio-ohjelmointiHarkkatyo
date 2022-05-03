@@ -41,4 +41,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchtitleimdb" />
 
+    <ListView
+        android:id="@+id/imdbmovielist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="200dp"
+         />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
