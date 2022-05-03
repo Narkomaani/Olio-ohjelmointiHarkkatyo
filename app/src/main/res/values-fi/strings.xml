@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">OnlyKino</string>
-    <string name="language">suomi</string>
+    <string name="selected_language">suomi</string>
+    <string name="language">englanti</string>
 
     <!--navigation menu strings-->
     <string name="nav_open">Avaa</string>

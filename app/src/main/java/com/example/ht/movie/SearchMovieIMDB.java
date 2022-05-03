@@ -23,7 +23,7 @@ public class SearchMovieIMDB {
 
     //A reader for name is given and every movie/show they have been in will be showed
     public static ArrayList<String> readMovieJson(String urlid) {
-        //This classes objective is to bring out the specific movie id out
+        //This class' objective is to bring out the specific movie id out
         String fronturl = "https://imdb-api.com/en/API/SearchMovie/";
         //String urlid = "leon the professional";
         String json = getJSON(fronturl,urlid );
